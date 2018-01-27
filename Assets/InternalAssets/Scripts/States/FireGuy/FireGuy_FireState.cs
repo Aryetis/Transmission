@@ -14,7 +14,7 @@ public class FireGuy_FireState : State
 
     public override void OnStateEnter()
     {
-        sub.gameObject.GetComponent<Renderer>().material.color = Color.red;
+        //sub.gameObject.GetComponent<Renderer>().material.color = Color.red;
     }
 
     public override void OnStateExit()

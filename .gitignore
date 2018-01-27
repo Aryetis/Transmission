@@ -63,7 +63,8 @@ ehthumbs.db
 # GGJ 18 specicics #
 # ================ #
 /ProjectSettings/ProjectVersion.txt
-
+/Assets/Plugins/Ionic.Zlib.dll
+/Assets/Plugins/Ionic.Zlib.dll.meta
 
 #==============================#
 #==============================#

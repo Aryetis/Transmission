@@ -11,9 +11,11 @@ public class CharacterBehaviour : MonoBehaviour {
 	public static CharacterBehaviour Instance
 	{
 		get { return _instance; }
-	}
+    }
+    private float speed = 10.0f;
+    public BeingBehavior interactibleGo;
 
-	[Header("MOTION")]
+    [Header("MOTION")]
 	[Space(10)]
 	public Vector2 leftStickAxis;
 	[Space(6)]
@@ -97,7 +99,7 @@ public class CharacterBehaviour : MonoBehaviour {
 	private void Update()
 	{
 		GetInputs();
-	}
+    }
 
 	private void FixedUpdate()
 	{
@@ -147,7 +149,20 @@ public class CharacterBehaviour : MonoBehaviour {
 				EndGame();
 			}
 		}
-	}
+
+        if (Input.GetButtonDown("ButtonA") && interactibleGo != null)
+            interactibleGo.AInteractionPassThrought();
+        else if (Input.GetButtonDown("ButtonB") && interactibleGo != null)
+            interactibleGo.BInteractionPassThrought();
+        else if (Input.GetButtonDown("ButtonX") && interactibleGo != null)
+            interactibleGo.XInteractionPassThrought();
+        else if (Input.GetButtonDown("ButtonY") && interactibleGo != null)
+            interactibleGo.YInteractionPassThrought();
+        else if (Input.GetButtonDown("ButtonRT") && interactibleGo != null)
+            Debug.Log("USING CAPACITY");
+        else if (Input.GetButtonDown("ButtonStart") && interactibleGo != null)
+            Debug.Log("HELLO START");
+    }
 
 	private void Motion()
 	{
@@ -236,5 +251,17 @@ public class CharacterBehaviour : MonoBehaviour {
 	{
 		LockCharacter();
 		startPanel.Play("End");
-	}
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Interactif"))
+            interactibleGo = other.gameObject.GetComponent<BeingBehavior>();
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Interactif"))
+            interactibleGo = null;
+    }
 }

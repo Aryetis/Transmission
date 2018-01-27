@@ -4,14 +4,14 @@ public enum NameState { Fire, Neutral, Water, Wind, Earth, Love, Dead, Life }
 
 public abstract class State
 {
-    protected BeingBehavior sub; // subject of the state
+    public BeingBehavior sub; // subject of the state
     protected Interactiblebutton interactibleButtonEnum; // HUD interaction button, state dependant 
     protected NameState nameState;
     protected float interactionRadius;
     // HUD related
     protected Sprite interactionButtonSprite;
     protected CapsuleCollider col = null;
-    protected GameObject hudButtonGo = null;
+    public GameObject hudButtonGo = null;
     protected SpriteRenderer buttonSprite;
 
     public abstract void Tick();
@@ -75,36 +75,30 @@ public abstract class State
         }
 
         // Set collider / interaction zone
-        if ( !sub.gameObject.GetComponent<CapsuleCollider>() || !sub.gameObject.GetComponent<CapsuleCollider>().isTrigger )
+        CapsuleCollider col = sub.gameObject.GetComponent<CapsuleCollider>();
+        if ( sub.gameObject.CompareTag("Player") && col != null && !col.isTrigger )
         {
+            Debug.Log("sub.gameObject.name : " + sub.gameObject.name);
             col = sub.gameObject.AddComponent<CapsuleCollider>();
             col.radius += interactionRadius;
             col.isTrigger = true;
         }
 
-        // Creating child gameobject holding SPriteRenderer
-        // TODO : AAAAAAALL OF THE BELOW HUD RELATED CODE HAS TO GO, it's buggy, and bound to be deleted anyways 
-        //bool hudElementDetected = false;
-        //int childrenCount = sub.gameObject.transform.childCount;
-        //foreach (Transform goct in sub.gameObject.transform)
-        //    if ( goct.gameObject.CompareTag("HUDElement"))
-        //    {
-        //        hudElementDetected = true;
-        //        break;
-        //    }
-        //if (!hudElementDetected)
-        //{
+        // Set HUD
+        else
+        {
             hudButtonGo = new GameObject();
             hudButtonGo.AddComponent<BillboardBehavior>();
             hudButtonGo.transform.position = sub.transform.position + Vector3.up * 2;
             hudButtonGo.transform.parent = sub.transform;
-        //}
-        hudButtonGo.name = sub.gameObject.name + "_hudButtonGo";
-        hudButtonGo.SetActive(false);
+            //}
+            hudButtonGo.name = sub.gameObject.name + "_hudButtonGo";
+            hudButtonGo.SetActive(false);
 
-        // Set SpriteRenderer buttonSprite
-        buttonSprite = hudButtonGo.AddComponent<SpriteRenderer>();
-        buttonSprite.sprite = interactionButtonSprite;
+            // Set SpriteRenderer buttonSprite
+            buttonSprite = hudButtonGo.AddComponent<SpriteRenderer>();
+            buttonSprite.sprite = interactionButtonSprite;
+        }
     }
 
     //void OnDestroy()

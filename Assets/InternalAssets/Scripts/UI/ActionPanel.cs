@@ -4,52 +4,84 @@ using UnityEngine.UI;
 [ExecuteInEditMode]
 public class ActionPanel : MonoBehaviour {
 
-	public Transform anchorPoint;
-	public Camera mainCamera;
+    private Vector3 anchorPoint;
+    private RectTransform selfRectTransform;
 
-	public RectTransform mainCanvas;
-	public RectTransform selfRectTransform;
-	public Image img;
+    private Image img;
 
-	public Sprite acquire;
-	public Sprite transmit;
-	public Sprite getLove;
-	public Sprite spreadLove;
+    private Sprite acquire;
+	private Sprite transmit;
+    private Sprite getLove;
+    private Sprite spreadLove;
 
-	public Animator animator;
+    private Animator animator; // own animator component 
 
-	private void Update()
+    // Use to determine which Sreen/World Position to set the panel
+    private Camera mainCamera;      
+    private RectTransform mainCanvas;
+
+    private void Start()
+    {
+        // Settings variables
+        selfRectTransform = GetComponent<RectTransform>();
+
+        img = GetComponentInChildren<Image>();
+
+        acquire = Resources.Load<Sprite>("Sprites/UI/UI_Acquire");
+        transmit = Resources.Load<Sprite>("Sprites/UI/UI_Transmit");
+        getLove = Resources.Load<Sprite>("Sprites/UI/UI_GetLove");
+        spreadLove = Resources.Load<Sprite>("Sprites/UI/UI_SpreadLove");
+        
+        animator = GetComponent<Animator>();
+
+        mainCamera = Camera.main;
+        mainCanvas = GameObject.Find("MainCanvas").GetComponent<RectTransform>();
+    }
+
+    private void Update()
 	{
-		SetPosition();
+		SetPosition(anchorPoint);
 	}
 
-	private void SetPosition()
+	public void SetPosition(Vector3 worldPosition)
 	{
-		if (!anchorPoint || !mainCamera || !mainCanvas || !selfRectTransform)
-			return;
+        transform.position = worldPosition;
 
-		selfRectTransform.anchoredPosition = mainCamera.WorldToScreenPoint(anchorPoint.position) / mainCanvas.localScale.x;
-	}
+  //      anchorPoint = worldPosition;
+  //      //anchorPoint = Vector3.zero;
 
-	public void SetPanel (int panelStatus)
+  //      if (!mainCamera || !mainCanvas || !selfRectTransform)
+		//	return;
+
+  //      Debug.Log("worldPosition : " + worldPosition);
+		////selfRectTransform.anchoredPosition = mainCamera.WorldToScreenPoint(anchorPoint);
+  //      transform.position = mainCamera.WorldToScreenPoint(anchorPoint);
+  //      selfRectTransform.anchoredPosition = mainCamera.WorldToScreenPoint(anchorPoint) / mainCanvas.localScale.x;
+    }
+
+	public void SetPanel (Interactiblebutton panelStatus)
 	{
 		switch(panelStatus)
 		{
-			case 0:
+			case Interactiblebutton.a:
 				img.sprite = acquire;
 				break;
 
-			case 1:
+			case Interactiblebutton.b:
 				img.sprite = transmit;
 				break;
 
-			case 2:
+			case Interactiblebutton.x:
 				img.sprite = getLove;
 				break;
 
-			case 3:
+			case Interactiblebutton.y:
 				img.sprite = spreadLove;
 				break;
+            case Interactiblebutton.none:
+                break;
+            default:
+                break;
 		}
 	}
 

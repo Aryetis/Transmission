@@ -92,10 +92,12 @@ public class BeingBehavior : MonoBehaviour
     public void SetState(State state_)
     {
         if (state != null)
+        {
             state.OnStateExit();
+            Destroy(state.hudButtonGo);
+        }
 
-        state = state_;
-        
+        state = state_;        
         
         gameObject.name = cat.ToString() + "_" + state_.GetType().Name;
 
