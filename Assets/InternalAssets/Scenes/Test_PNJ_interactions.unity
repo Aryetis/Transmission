@@ -211,8 +211,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cat: 10
-  interactiblebuttonenum: 0
-  interactionradius: 5
+  interactiblebuttonenum: 4
+  interactionradius: 0
 --- !u!54 &340946936
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -555,5 +555,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cat: 11
-  interactiblebuttonenum: 1
+  interactiblebuttonenum: 3
   interactionradius: 1

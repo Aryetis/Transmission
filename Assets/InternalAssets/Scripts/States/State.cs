@@ -55,6 +55,12 @@ public abstract class State
                     interactionButtonSprite = Resources.Load<Sprite>("ButtonImages/xboxControllerButtonY");
                     break;
                 }
+            case Interactiblebutton.none:
+                {
+                    // TODO handle player case => don't create hudButtonGo therefore lots of repercusions
+                    interactionButtonSprite = null;
+                    break;
+                }
             default:
                 {
                     Debug.LogError("unknown interactible button");
@@ -69,6 +75,7 @@ public abstract class State
 
         // Creating child gameobject holding SPriteRenderer
         hudButtonGo = new GameObject();
+        hudButtonGo.transform.parent = sub.transform;
         hudButtonGo.name = "hudButtonGo";
         hudButtonGo.transform.position = sub.transform.position + Vector3.up * 2;
         hudButtonGo.AddComponent<BillboardBehavior>();

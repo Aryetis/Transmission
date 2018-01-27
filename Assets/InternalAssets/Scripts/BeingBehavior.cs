@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Interactiblebutton { a, b, x, y };
+public enum Interactiblebutton { a, b, x, y, none };
 
 public class BeingBehavior : MonoBehaviour
 {
@@ -13,7 +13,7 @@ public class BeingBehavior : MonoBehaviour
 
     // Entry values for HUD
     [SerializeField] private Interactiblebutton interactiblebuttonenum;
-    [SerializeField] private float interactionradius = 5.0f;
+    [SerializeField] private float interactionradius;
 
 
     // Use this for initialization
