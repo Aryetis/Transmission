@@ -37,7 +37,7 @@ public class Sleeping : State
     public override void AInteraction()
     {
         Debug.Log("WAKING UP");
-        sub.SetState(new Awake(sub, Interactiblebutton.b, interactionRadius));
+        sub.SetState(new Awake(sub, Interactiblebutton.b, interactionRadius, nameState));
     }
 
     public override void BInteraction()
