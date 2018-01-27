@@ -34,4 +34,24 @@ public class Awake : State
         if (col.CompareTag("Player"))
             hudButtonGo.SetActive(false);
     }
+
+    public override void AInteraction()
+    {
+
+    }
+
+    public override void BInteraction()
+    {
+
+    }
+
+    public override void XInteraction()
+    {
+
+    }
+
+    public override void YInteraction()
+    {
+
+    }
 }

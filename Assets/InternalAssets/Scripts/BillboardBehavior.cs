@@ -6,19 +6,26 @@ public class BillboardBehavior : MonoBehaviour
 	public Transform lookAtTransform;
 	public bool verticalBillboard = false;
 
-	void LateUpdate ()
-    {
-		//transform.LookAt(lookAtTransform);
-		if (!verticalBillboard)
-			transform.rotation = lookAtTransform.rotation;
-		else
-		{
-			if (!CameraBehaviour.Instance)
-				return;
+private void Start()
+{
+lookAtTransform = Camera.main.transform;
+}
 
-			Vector3 targetPos = lookAtTransform.position - CameraBehaviour.Instance.yRotationGroup.forward * 10;
-			targetPos.y = transform.position.y;
-			transform.LookAt(targetPos);
-		}
+    void LateUpdate ()
+    {
+        //transform.LookAt(lookAtTransform);
+        if (!verticalBillboard)
+        {
+            transform.rotation = lookAtTransform.rotation;
+        }
+        else
+        {
+            if (!CameraBehaviour.Instance)
+                return;
+
+            Vector3 targetPos = lookAtTransform.position - CameraBehaviour.Instance.yRotationGroup.forward * 10;
+            targetPos.y = transform.position.y;
+            transform.LookAt(targetPos);
+        }
 	}
 }

@@ -18,7 +18,10 @@ public abstract class State
     public virtual void OnStateExit() { }
     public virtual void OnTriggerEnterPassThrought(Collider col) { }
     public virtual void OnTriggerExitPassThrought(Collider col) { }
-    //    public virtual void SetHud() { }
+    public virtual void AInteraction() { }
+    public virtual void BInteraction() { }
+    public virtual void XInteraction() { }
+    public virtual void YInteraction() { }
 
 
     public State(BeingBehavior sub_, Interactiblebutton interactibleButtonEnum_, float interactionRadius_)
@@ -76,7 +79,7 @@ public abstract class State
         // Creating child gameobject holding SPriteRenderer
         hudButtonGo = new GameObject();
         hudButtonGo.transform.parent = sub.transform;
-        hudButtonGo.name = "hudButtonGo";
+        hudButtonGo.name = sub.gameObject.name+"_hudButtonGo";
         hudButtonGo.transform.position = sub.transform.position + Vector3.up * 2;
         hudButtonGo.AddComponent<BillboardBehavior>();
         hudButtonGo.SetActive(false);
