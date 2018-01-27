@@ -22,6 +22,12 @@ public class BeingBehavior : MonoBehaviour
         switch (cat)
         {
             // TODO insert loooooooooots of states 
+
+            case Category.FireGuy: {
+                    SetState(new FireState(gameObject.GetComponent<BeingBehavior>(), interactiblebuttonenum, interactionradius));
+                    break;
+            }
+
             case Category.TEST :
             {
                 SetState(new Sleeping(gameObject.GetComponent<BeingBehavior>(), interactiblebuttonenum, interactionradius));
