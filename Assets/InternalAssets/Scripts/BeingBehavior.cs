@@ -50,7 +50,8 @@ public class BeingBehavior : MonoBehaviour
         }
     }
 
-    private void Update() {
+    private void Update()
+    {
         state.Tick();
     }
 

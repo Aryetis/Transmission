@@ -41,7 +41,6 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-
         if (other.gameObject.CompareTag("Interactif"))
             interactibleGo = null;
     }
