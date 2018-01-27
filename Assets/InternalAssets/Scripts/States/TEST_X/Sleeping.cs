@@ -18,7 +18,7 @@ public class Sleeping : State
 
     public override void OnStateExit()
     {
-
+        
     }
 
     public override void OnTriggerEnterPassThrought(Collider col)
@@ -37,22 +37,22 @@ public class Sleeping : State
 
     public override void AInteraction()
     {
-        Debug.Log("BACK TO YOU");
+        Debug.Log("WAKING UP");
+        sub.SetState(new Awake(sub, Interactiblebutton.b, interactionRadius));
     }
 
     public override void BInteraction()
     {
-        Debug.Log("BACK TO YOU");
+
     }
 
     public override void XInteraction()
     {
 
-        Debug.Log("BACK TO YOU");
     }
 
     public override void YInteraction()
     {
-        Debug.Log("BACK TO YOU");
+
     }
 }

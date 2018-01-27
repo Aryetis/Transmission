@@ -8,7 +8,7 @@ public class BeingBehavior : MonoBehaviour
 {
     // State/category related dpf
     public enum Category { Mushroom, Fisherman, BridgeBuilder, Gardener, Windmill, AirGuy, EarthGuy, WaterGuy, FireGuy, Brazier, Player, TEST }; // Used to set initial State
-    public Category cat = Category.FireGuy;
+    public Category cat;
     public State state; // public so we can check player's state from others gameobject (if we need to check what state/capacity the player is trying to give to other beings)
 
     // Entry values for HUD
