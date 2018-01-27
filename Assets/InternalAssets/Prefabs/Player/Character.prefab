@@ -52,7 +52,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1261464901208382}
-  m_LocalRotation: {x: -0, y: 0.9551889, z: 0.2959971, w: 0}
+  m_LocalRotation: {x: 0.08715574, y: -0, z: -0, w: 0.9961947}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -65,7 +65,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1642543898369638}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -104,6 +104,9 @@ MonoBehaviour:
   characterSpeedLerpRate: 8
   motionVector: {x: 0, y: 0, z: 0}
   cameraBehaviour: {fileID: 0}
+  offroadAnchor: {fileID: 0}
+  offroadRadius: 0
+  offroadThresold: 4
   characterTransform: {fileID: 0}
 --- !u!114 &114589628106584178
 MonoBehaviour:
@@ -117,6 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lookAtTransform: {fileID: 0}
+  verticalBillboard: 0
 --- !u!136 &136244078169164664
 CapsuleCollider:
   m_ObjectHideFlags: 1

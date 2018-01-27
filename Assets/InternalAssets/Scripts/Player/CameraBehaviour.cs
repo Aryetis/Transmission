@@ -120,19 +120,19 @@ public class CameraBehaviour : MonoBehaviour {
 		if (lerp >= 0f)
 			offroadLerp = lerp;
 
-		vignette.intensity = Mathf.Lerp(0.2f, 0.4f, offroadLerp);
+		vignette.intensity = Mathf.Lerp(0.2f, 0.6f, offroadLerp);
 		vignette.chromaticAberration = offroadLerp * 20f;
 
-		fisheye.strengthX = fisheye.strengthY = offroadLerp / 3f;
+		fisheye.strengthX = fisheye.strengthY = offroadLerp / 4f;
 
 		Color overlayColor = redOverlay.color;
-		overlayColor = new Color(overlayColor.r, overlayColor.g, overlayColor.b, offroadLerp / 8f);
+		overlayColor = new Color(overlayColor.r, overlayColor.g, overlayColor.b, offroadLerp / 6f);
 		redOverlay.color = overlayColor;
 	}
 
 	private void ShakeCam()
 	{
-		mainCamera.transform.localEulerAngles = Random.insideUnitSphere * offroadLerp / 8f;
+		mainCamera.transform.localEulerAngles = Random.insideUnitSphere * offroadLerp / 4f;
 	}
 
 #if UNITY_EDITOR

@@ -22,6 +22,16 @@ public class LightSpot : MonoBehaviour {
 		}
 	}
 
+	private void OnTriggerEnter(Collider other)
+	{
+		CharacterBehaviour.Instance.AddOffroadAnchor(this);	
+	}
+
+	private void OnTriggerExit(Collider other)
+	{
+		CharacterBehaviour.Instance.RemoveOffroadAnchor(this);
+	}
+
 #if UNITY_EDITOR
 	// More accurate than OnDrawGizmos
 	private void Update()
