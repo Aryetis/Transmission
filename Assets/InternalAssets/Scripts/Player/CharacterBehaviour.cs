@@ -10,16 +10,23 @@ public class CharacterBehaviour : MonoBehaviour {
 		get { return _instance; }
 	}
 
+	public Vector2 leftStickAxis;
+	public float characterSpeed = 8f;
+	public float characterSpeedLerpRate = 8f;
+	public Vector3 motionVector;
+
+	public CameraBehaviour cameraBehaviour;
+
 	// Cache
-	private CameraBehaviour cameraBehaviour;
+	private float fixedDeltaTime;
 	[HideInInspector] public Transform characterTransform;
 	private Rigidbody _characterRigidbody;
 	private Rigidbody characterRigidbody
 	{
 		get
 		{
-			if (_characterRigidbody)
-				GetComponent<Rigidbody>();
+			if (!_characterRigidbody)
+				_characterRigidbody = GetComponent<Rigidbody>();
 
 			return _characterRigidbody;
 		}
@@ -29,8 +36,8 @@ public class CharacterBehaviour : MonoBehaviour {
 	{
 		get
 		{
-			if (_characterCollider)
-				GetComponent<CapsuleCollider>();
+			if (!_characterCollider)
+				_characterCollider = GetComponent<CapsuleCollider>();
 
 			return _characterCollider;
 		}
@@ -52,13 +59,51 @@ public class CharacterBehaviour : MonoBehaviour {
 
 	}
 
-	private void EarlyCacheData ()
-	{
-
-	}
-
 	private void Start()
 	{
 		cameraBehaviour = CameraBehaviour.Instance;
+	}
+
+	private void Update()
+	{
+		GetInputs();
+	}
+
+	private void FixedUpdate()
+	{
+		FixedCacheData();
+
+		Motion();
+	}
+
+	private void EarlyCacheData()
+	{
+		characterTransform = transform;
+	}
+
+	private void FixedCacheData ()
+	{
+		fixedDeltaTime = Time.fixedDeltaTime;
+	}
+
+	private void GetInputs()
+	{
+		leftStickAxis = new Vector2(Input.GetAxis("LeftStickX"), -Input.GetAxis("LeftStickY"));
+		if (leftStickAxis.magnitude > 1f)
+			leftStickAxis = leftStickAxis.normalized;
+	}
+
+	private void Motion()
+	{
+		motionVector = Vector3.Lerp(
+			motionVector,
+			cameraBehaviour.yRotationGroup.rotation * new Vector3(leftStickAxis.x, 0f, leftStickAxis.y) * characterSpeed,
+			fixedDeltaTime * characterSpeedLerpRate);
+		SetRigidbodyVelocity(motionVector);
+	}
+
+	private void SetRigidbodyVelocity(Vector3 vel)
+	{
+		characterRigidbody.velocity = vel;
 	}
 }

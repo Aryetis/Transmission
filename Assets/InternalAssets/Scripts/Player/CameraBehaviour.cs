@@ -1,6 +1,11 @@
 ﻿using UnityEngine;
+using UnityStandardAssets.ImageEffects;
+using UnityEngine.UI;
 
-[ExecuteInEditMode]
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 public class CameraBehaviour : MonoBehaviour {
 
 	private static CameraBehaviour _instance;
@@ -9,24 +14,40 @@ public class CameraBehaviour : MonoBehaviour {
 		get { return _instance; }
 	}
 
-	public Camera mainCamera;
-
+	[Header("MAIN BEHAVIOUR")]
+	[Space(10)]
 	public Transform character;
+	public Camera mainCamera;
+	[Space(6)]
 	public float followLerprate = 8f;
-
+	[Space(6)]
+	public Vector2 rightStickAxis;
+	[Space(6)]
 	public Transform yRotationGroup;
-	//public float yRotation;
 	public float yTargetRotation;
 	public float ySensivity = 1f;
 	public bool inverseYRotation = false;
+	[Space(6)]
 	public Transform xRotationGroup;
-	//public float xRotation;
 	public float xTargetRotation;
 	public float xSensivity = 1f;
+	[Space(6)]
+	public int minXRotation = 0;
+	public int maxXRotation = 90;
+	[Space(6)]
 	public bool inverseXRotation = true;
+	[Space(6)]
 	public float rotationLerprate = 8f;
 
-	public Vector2 rightStickAxis;
+	[Header("EFFECTS")]
+	[Space(10)]
+	public BloomOptimized bloom;
+	public VignetteAndChromaticAberration vignette;
+	public Fisheye fisheye;
+	public Image redOverlay;
+	[Space(6)]
+	[Range(0f, 1f)]
+	public float offroadLerp = 0f;
 
 	// Private
 	private float deltaTime;
@@ -59,6 +80,9 @@ public class CameraBehaviour : MonoBehaviour {
 
 		FollowCharacter();
 		RotateCamera();
+
+		SetOffroadFX();
+		ShakeCam();
 	}
 
 	private void GetInputs()
@@ -66,9 +90,10 @@ public class CameraBehaviour : MonoBehaviour {
 		rightStickAxis = new Vector2(Input.GetAxis("RightStickX"), Input.GetAxis("RightStickY"));
 		float yDelta = rightStickAxis.x * ySensivity * deltaTime;
 		yTargetRotation += inverseYRotation ? yDelta : -yDelta;
+		//yTargetRotation = Mathf.Clamp(yTargetRotation, -20, 20);
 		float xDelta = rightStickAxis.y * xSensivity * deltaTime;
 		xTargetRotation += inverseYRotation ? xDelta : -xDelta;
-		xTargetRotation = Mathf.Clamp(xTargetRotation, 30f, 40f);
+		xTargetRotation = Mathf.Clamp(xTargetRotation, minXRotation, maxXRotation);
 	}
 
 	private void LateCacheData ()
@@ -89,4 +114,37 @@ public class CameraBehaviour : MonoBehaviour {
 		yRotationGroup.localRotation = Quaternion.Slerp(yRotationGroup.localRotation, Quaternion.Euler(0f, yTargetRotation, 0f), instantRotation ? 1f : deltaTime * rotationLerprate);
 		xRotationGroup.localRotation = Quaternion.Slerp(xRotationGroup.localRotation, Quaternion.Euler(xTargetRotation, 0f, 0f), instantRotation ? 1f : deltaTime * rotationLerprate);
 	}
+
+	public void SetOffroadFX (float lerp = -1)
+	{
+		if (lerp >= 0f)
+			offroadLerp = lerp;
+
+		vignette.intensity = Mathf.Lerp(0.2f, 0.4f, offroadLerp);
+		vignette.chromaticAberration = offroadLerp * 20f;
+
+		fisheye.strengthX = fisheye.strengthY = offroadLerp / 3f;
+
+		Color overlayColor = redOverlay.color;
+		overlayColor = new Color(overlayColor.r, overlayColor.g, overlayColor.b, offroadLerp / 8f);
+		redOverlay.color = overlayColor;
+	}
+
+	private void ShakeCam()
+	{
+		mainCamera.transform.localEulerAngles = Random.insideUnitSphere * offroadLerp / 8f;
+	}
+
+#if UNITY_EDITOR
+	private void OnDrawGizmos()
+	{
+		if (EditorApplication.isPlaying)
+			return;
+
+		FollowCharacter(true);
+		RotateCamera(true);
+
+		SetOffroadFX(offroadLerp);
+	}
+#endif
 }
