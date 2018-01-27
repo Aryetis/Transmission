@@ -1,14 +1,14 @@
 ﻿using UnityEngine;
 
-public class Sleeping : State
+public class PlayerEmpty : State
 {
     // HUD related
-    //private Sprite interactionButtonSprite;
-    //private CapsuleCollider col;
-    //private GameObject hudButtonGo;
-    //private SpriteRenderer buttonSprite;
+    private Sprite interactionButtonSprite;
+    private CapsuleCollider col;
+    private GameObject hudButtonGo;
+    private SpriteRenderer buttonSprite;
 
-    public Sleeping(BeingBehavior sub_, Interactiblebutton interactibleButtonEnum_, float interactionRadius_) : base(sub_, interactibleButtonEnum_, interactionRadius_)
+    public PlayerEmpty(BeingBehavior sub_, Interactiblebutton interactibleButtonEnum_, float interactionRadius_) : base(sub_, interactibleButtonEnum_, interactionRadius_)
     {
         //SetHud(); // Set hud using interactibleButtonEnum's mother value
     }

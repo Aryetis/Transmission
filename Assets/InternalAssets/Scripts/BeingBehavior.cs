@@ -2,55 +2,52 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Interactiblebutton { a, b, x, y };
+
 public class BeingBehavior : MonoBehaviour
 {
     // State/category related dpf
-    public enum Category { Mushroom, Fisherman, BridgeBuilder, Gardener, Windmill, AirGuy, EarthGuy, WaterGuy, FireGuy, Brazier, TEST }; // Used to set initial State
-    [SerializeField] private Category cat;
+    public enum Category { Mushroom, Fisherman, BridgeBuilder, Gardener, Windmill, AirGuy, EarthGuy, WaterGuy, FireGuy, Brazier, Player, TEST }; // Used to set initial State
+    public Category cat = Category.FireGuy;
     private State state;
 
-    // HUD related variables
-    public enum InteractibleButton { A, B, X, Y, NONE };
+    // Entry values for HUD
+    [SerializeField] private Interactiblebutton interactiblebuttonenum;
+    [SerializeField] private float interactionradius = 5.0f;
 
-    [SerializeField] private InteractibleButton interactibleButtonEnum;
-    [SerializeField] private float interactionRadius = 5.0f;
 
-    private Sprite interactionButtonSprite;
-    private CapsuleCollider col;
-    private GameObject hudButtonGo;
-    private SpriteRenderer buttonSprite;
-
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
     {
         switch (cat)
         {
+            // TODO insert loooooooooots of states 
             case Category.TEST :
             {
-                SetState(new Sleeping(gameObject.GetComponent<BeingBehavior>()));
+                SetState(new Sleeping(gameObject.GetComponent<BeingBehavior>(), interactiblebuttonenum, interactionradius));
+                break;
+            }
+            case Category.Player :
+            {
+                SetState(new PlayerEmpty(gameObject.GetComponent<BeingBehavior>(), interactiblebuttonenum, interactionradius));
                 break;
             }
             default:
             {
-                Debug.LogError("unknown category");
+                Debug.LogError("unknown category : "+cat);
                 break;
             }
-
         }
-
-
     }
 
     private void OnTriggerEnter(Collider col)
     {
-        if(col.CompareTag("Player"))
-            hudButtonGo.SetActive(true);
+        state.OnTriggerEnterPassThrought(col);
     }
 
     private void OnTriggerExit(Collider col)
     {
-        if (col.CompareTag("Player"))
-            hudButtonGo.SetActive(false);
+        state.OnTriggerExitPassThrought(col);
     }
 
     public void SetState(State state_)
@@ -59,62 +56,9 @@ public class BeingBehavior : MonoBehaviour
             state.OnStateExit();
 
         state = state_;
-        gameObject.name = "InteractibleNPC_" + state_.GetType().Name;
+        gameObject.name = cat.ToString() + "_" + state_.GetType().Name;
 
         if (state != null)
             state.OnStateEnter();
-    }
-
-    public void SetInteractibleButton(InteractibleButton b)
-    {
-        // Load correct button sprite 
-        switch (interactibleButtonEnum)
-        {
-            case InteractibleButton.A:
-                {
-                    interactionButtonSprite = Resources.Load<Sprite>("ButtonImages/xboxControllerButtonA");
-                    break;
-                }
-            case InteractibleButton.B:
-                {
-                    interactionButtonSprite = Resources.Load<Sprite>("ButtonImages/xboxControllerButtonB");
-                    break;
-                }
-            case InteractibleButton.X:
-                {
-                    interactionButtonSprite = Resources.Load<Sprite>("ButtonImages/xboxControllerButtonX");
-                    break;
-                }
-            case InteractibleButton.Y:
-                {
-                    interactionButtonSprite = Resources.Load<Sprite>("ButtonImages/xboxControllerButtonY");
-                    break;
-                }
-            case InteractibleButton.NONE:
-                {
-                    interactionButtonSprite = null;
-                    break;
-                }
-            default:
-                {
-                    Debug.LogError("unknown interactible button");
-                    break;
-                }
-        }
-
-        // Set collider / interaction zone
-        col = gameObject.AddComponent<CapsuleCollider>();
-        col.radius += interactionRadius;
-        col.isTrigger = true;
-
-        // Creating child gameobject holding SPriteRenderer
-        hudButtonGo = new GameObject();
-        hudButtonGo.transform.position = transform.position + Vector3.up * 2;
-        hudButtonGo.AddComponent<BillboardBehavior>();
-        hudButtonGo.SetActive(false);
-
-        // Set SpriteRenderer buttonSprite
-        buttonSprite = hudButtonGo.AddComponent<SpriteRenderer>();
-        buttonSprite.sprite = interactionButtonSprite;
     }
 }
