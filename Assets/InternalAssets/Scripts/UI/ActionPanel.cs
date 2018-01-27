@@ -35,19 +35,19 @@ public class ActionPanel : MonoBehaviour {
 	{
 		switch(panelStatus)
 		{
-			case 1:
+			case 0:
 				img.sprite = acquire;
 				break;
 
-			case 2:
+			case 1:
 				img.sprite = transmit;
 				break;
 
-			case 3:
+			case 2:
 				img.sprite = getLove;
 				break;
 
-			case 4:
+			case 3:
 				img.sprite = spreadLove;
 				break;
 		}
