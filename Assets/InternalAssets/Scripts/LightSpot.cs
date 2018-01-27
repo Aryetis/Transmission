@@ -41,7 +41,11 @@ public class LightSpot : MonoBehaviour {
 
 		lightCollider.isTrigger = true;
 		lightCollider.radius = spotRadius;
-		lightCollider.center = new Vector3(0, -transform.position.y, 0);
+		lightCollider.center = new Vector3(0, 0, transform.position.y);
+
+		transform.gameObject.layer = 9;
+
+		transform.eulerAngles = new Vector3(90, 0, 0);
 	}
 
 	private void OnDrawGizmos()
