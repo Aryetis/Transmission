@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public enum NameState { Fire, Neutral, Water, Air, Earth, Love, Dead }
+public enum NameState { Fire, Neutral, Water, Wind, Earth, Love, Dead, Life }
 
 public abstract class State
 {

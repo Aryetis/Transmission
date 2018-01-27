@@ -7,7 +7,7 @@ public enum Interactiblebutton { a, b, x, y, none };
 public class BeingBehavior : MonoBehaviour
 {
     // State/category related dpf
-    public enum Category { Mushroom, Fisherman, BridgeBuilder, Gardener, Windmill, AirGuy, EarthGuy, WaterGuy, FireGuy, Brazier, Player, TEST }; // Used to set initial State
+    public enum Category { Mushroom, Fisherman, BridgeBuilder, Gardener, Windmill, WindGuy, EarthGuy, WaterGuy, FireGuy, Brazier, Player }; // Used to set initial State
     public Category cat = Category.FireGuy;
     public State state;
     public NameState nameState;
@@ -24,19 +24,36 @@ public class BeingBehavior : MonoBehaviour
         {
             // TODO insert loooooooooots of states 
 
-            case Category.FireGuy:
-            {
+            case Category.Mushroom: {
+                    nameState = NameState.Life;
+                    SetState(new Mushroom_LifeState(gameObject.GetComponent<BeingBehavior>(), interactiblebuttonenum, interactionradius, nameState));
+                    break;
+                }
+
+            case Category.FireGuy: {
                 nameState = NameState.Fire;
                 SetState(new FireGuy_FireState(gameObject.GetComponent<BeingBehavior>(), interactiblebuttonenum, interactionradius, nameState));
                 break;
             }
 
-            case Category.TEST :
-            {
-                nameState = NameState.Neutral;
-                SetState(new Sleeping(gameObject.GetComponent<BeingBehavior>(), interactiblebuttonenum, interactionradius, nameState));
+            case Category.WaterGuy: {
+                nameState = NameState.Water;
+                SetState(new WaterGuy_WaterState(gameObject.GetComponent<BeingBehavior>(), interactiblebuttonenum, interactionradius, nameState));
                 break;
             }
+
+            case Category.WindGuy: {
+                nameState = NameState.Wind;
+                SetState(new WindGuy_WaterState(gameObject.GetComponent<BeingBehavior>(), interactiblebuttonenum, interactionradius, nameState));
+                break;
+            }
+
+            case Category.EarthGuy: {
+                nameState = NameState.Earth;
+                SetState(new EarthGuy_WaterState(gameObject.GetComponent<BeingBehavior>(), interactiblebuttonenum, interactionradius, nameState));
+                break;
+            }
+
             case Category.Player :
             {
                 nameState = NameState.Neutral;
