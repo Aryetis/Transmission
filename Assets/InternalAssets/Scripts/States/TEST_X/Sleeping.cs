@@ -34,4 +34,25 @@ public class Sleeping : State
         if (col.CompareTag("Player"))
             hudButtonGo.SetActive(false);
     }
+
+    public override void AInteraction()
+    {
+        Debug.Log("BACK TO YOU");
+    }
+
+    public override void BInteraction()
+    {
+        Debug.Log("BACK TO YOU");
+    }
+
+    public override void XInteraction()
+    {
+
+        Debug.Log("BACK TO YOU");
+    }
+
+    public override void YInteraction()
+    {
+        Debug.Log("BACK TO YOU");
+    }
 }

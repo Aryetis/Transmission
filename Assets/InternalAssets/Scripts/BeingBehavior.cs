@@ -61,4 +61,24 @@ public class BeingBehavior : MonoBehaviour
         if (state != null)
             state.OnStateEnter();
     }
+
+    public void AInteractionPassThrought()
+    {
+        state.AInteraction();
+    }
+
+    public void BInteractionPassThrought()
+    {
+        state.BInteraction();
+    }
+
+    public void XInteractionPassThrought()
+    {
+        state.XInteraction();
+    }
+
+    public void YInteractionPassThrought()
+    {
+        state.YInteraction();
+    }
 }
