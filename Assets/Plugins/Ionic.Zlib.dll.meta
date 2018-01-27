@@ -1,13 +1,7 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Assets/Plugins/Ionic.Zlib.dll.meta
 guid: ecdf98fefc8ef8e48b67a7681b02605b
-timeCreated: 1517067251
+timeCreated: 1517081547
 licenseType: Free
-=======
-guid: 857087804d66146a9821ab3304ae6a3c
-timeCreated: 1475424779
-licenseType: Store
->>>>>>> master:Assets/FlashTools/Plugins/Editor/Ionic.Zip.Unity.dll.meta
 PluginImporter:
   externalObjects: {}
   serializedVersion: 2
@@ -19,12 +13,12 @@ PluginImporter:
   - first:
       Any: 
     second:
-      enabled: 0
+      enabled: 1
       settings: {}
   - first:
       Editor: Editor
     second:
-      enabled: 1
+      enabled: 0
       settings:
         DefaultValueInitialized: true
   - first:

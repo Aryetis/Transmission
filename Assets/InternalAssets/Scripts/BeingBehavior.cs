@@ -25,10 +25,16 @@ public class BeingBehavior : MonoBehaviour
             // TODO insert loooooooooots of states 
 
             case Category.Mushroom: {
-                    nameState = NameState.Life;
-                    SetState(new Mushroom_LifeState(gameObject.GetComponent<BeingBehavior>(), interactiblebuttonenum, interactionradius, nameState));
-                    break;
-                }
+                nameState = NameState.Life;
+                SetState(new Mushroom_LifeState(gameObject.GetComponent<BeingBehavior>(), interactiblebuttonenum, interactionradius, nameState));
+                break;
+            }
+
+            case Category.Brazier: {
+                nameState = NameState.Neutral;
+                SetState(new Brazier_NeutralState(gameObject.GetComponent<BeingBehavior>(), interactiblebuttonenum, interactionradius, nameState));
+                break;
+            }
 
             case Category.FireGuy: {
                 nameState = NameState.Fire;
