@@ -40,6 +40,11 @@ public class BeingBehavior : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        state.Tick();
+    }
+
     private void OnTriggerEnter(Collider col)
     {
         state.OnTriggerEnterPassThrought(col);
