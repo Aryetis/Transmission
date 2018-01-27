@@ -41,7 +41,6 @@ public class CameraBehaviour : MonoBehaviour {
 
 	[Header("EFFECTS")]
 	[Space(10)]
-	public BloomOptimized bloom;
 	public VignetteAndChromaticAberration vignette;
 	public Fisheye fisheye;
 	public Image redOverlay;
@@ -132,7 +131,7 @@ public class CameraBehaviour : MonoBehaviour {
 
 	private void ShakeCam()
 	{
-		mainCamera.transform.localEulerAngles = Random.insideUnitSphere * offroadLerp / 4f;
+		mainCamera.transform.localEulerAngles = Random.insideUnitSphere * offroadLerp / 8f;
 	}
 
 #if UNITY_EDITOR

@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections.Generic;
+using System.Collections;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(CapsuleCollider))]
@@ -11,21 +13,36 @@ public class CharacterBehaviour : MonoBehaviour {
 		get { return _instance; }
 	}
 
+	[Header("MOTION")]
+	[Space(10)]
 	public Vector2 leftStickAxis;
+	[Space(6)]
 	public float characterSpeed = 8f;
 	public float characterSpeedLerpRate = 8f;
+	[Space(6)]
 	public Vector3 motionVector;
-
+	[Space(6)]
 	public CameraBehaviour cameraBehaviour;
+	
 
+	[Header("EFFECTS")]
+	[Space(10)]
 	public List<LightSpot> offroadAnchors = new List<LightSpot>();
 	public float offroadThresold = 2f;
 	[Range(0f, 1f)]
 	public float offroadLerp = 0f;
 	[Range(-1f, 1f)]
 	public float offroadDot = 0f;
+	[Space(6)]
 	public AnimationCurve offroadDotCurve = AnimationCurve.Linear(0, 0, 1, 1);
+	[Space(6)]
+	public bool lockInputs = false;
+	[Space(6)]
+	public Animator startPanel;
+	public UI_DangerText dangerText;
 
+	// Private
+	private int startLockDelay = 10;
 	// Cache
 	private float fixedDeltaTime;
 	[HideInInspector] public Transform characterTransform;
@@ -65,7 +82,7 @@ public class CharacterBehaviour : MonoBehaviour {
 		}
 
 		EarlyCacheData();
-
+		StartCoroutine(StartLock());
 	}
 
 	private void Start()
@@ -81,10 +98,12 @@ public class CharacterBehaviour : MonoBehaviour {
 	private void FixedUpdate()
 	{
 		FixedCacheData();
+		OffroadStatus();
+
+		if (lockInputs)
+			return;
 
 		Motion();
-
-		OffroadStatus();
 	}
 
 	private void EarlyCacheData()
@@ -97,11 +116,24 @@ public class CharacterBehaviour : MonoBehaviour {
 		fixedDeltaTime = Time.fixedDeltaTime;
 	}
 
+	private IEnumerator StartLock ()
+	{
+		LockCharacter();
+		yield return new WaitForSeconds(startLockDelay);
+		UnlockCharacter();
+	}
+
 	private void GetInputs()
 	{
 		leftStickAxis = new Vector2(Input.GetAxis("LeftStickX"), -Input.GetAxis("LeftStickY"));
 		if (leftStickAxis.magnitude > 1f)
 			leftStickAxis = leftStickAxis.normalized;
+
+		if (Input.GetButtonDown("Cancel") && Time.timeSinceLevelLoad < (float)startLockDelay)
+		{
+			startPanel.Play("Start", 0, 1);
+			UnlockCharacter();
+		}
 	}
 
 	private void Motion()
@@ -111,7 +143,7 @@ public class CharacterBehaviour : MonoBehaviour {
 			cameraBehaviour.yRotationGroup.rotation * new Vector3(leftStickAxis.x, 0f, leftStickAxis.y) * characterSpeed,
 			fixedDeltaTime * characterSpeedLerpRate);
 
-		SetRigidbodyVelocity(motionVector * offroadDot);
+		SetRigidbodyVelocity(new Vector3(motionVector.x * offroadDot, characterRigidbody.velocity.y, motionVector.z * offroadDot));
 	}
 
 	private void SetRigidbodyVelocity(Vector3 vel)
@@ -125,6 +157,8 @@ public class CharacterBehaviour : MonoBehaviour {
 		{
 			offroadLerp = 0f;
 			offroadDot = 1f;
+
+			dangerText.targetAlpha = 0f;
 		}
 		else
 		{
@@ -148,10 +182,11 @@ public class CharacterBehaviour : MonoBehaviour {
 			float offroadDotValue = offroadDotCurve.Evaluate(Vector3.Dot(motionVector.normalized, (offroadAnchors[closestSpot].transform.position - transform.position).normalized));
 
 			offroadDot = Mathf.InverseLerp(1f, offroadDotValue, offroadLerp);
+
+			dangerText.targetAlpha = offroadDot < 0.5f ? 1f : 0f;
 		}
 
 		CameraBehaviour.Instance.SetOffroadFX(offroadLerp);
-
 	}
 
 	public void AddOffroadAnchor (LightSpot spot)
@@ -165,5 +200,21 @@ public class CharacterBehaviour : MonoBehaviour {
 			return;
 
 		offroadAnchors.Remove(spot);
+	}
+
+	public void LockCharacter ()
+	{
+		lockInputs = true;
+	}
+
+	public void UnlockCharacter ()
+	{
+		lockInputs = false;
+	}
+
+	public void EndGame()
+	{
+		LockCharacter();
+		startPanel.Play("End");
 	}
 }
