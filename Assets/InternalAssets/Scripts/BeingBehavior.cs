@@ -24,7 +24,8 @@ public class BeingBehavior : MonoBehaviour
         {
             // TODO insert loooooooooots of states 
 
-            case Category.FireGuy: {
+            case Category.FireGuy:
+            {
                 nameState = NameState.Fire;
                 SetState(new FireGuy_FireState(gameObject.GetComponent<BeingBehavior>(), interactiblebuttonenum, interactionradius, nameState));
                 break;

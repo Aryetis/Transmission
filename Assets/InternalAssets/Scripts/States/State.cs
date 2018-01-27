@@ -75,8 +75,10 @@ public abstract class State
         }
 
         // Set collider / interaction zone
-        if ( !sub.gameObject.GetComponent<CapsuleCollider>() || !sub.gameObject.GetComponent<CapsuleCollider>().isTrigger )
+        CapsuleCollider col = sub.gameObject.GetComponent<CapsuleCollider>();
+        if ( sub.gameObject.CompareTag("Player") && col != null && !col.isTrigger )
         {
+            Debug.Log("sub.gameObject.name : " + sub.gameObject.name);
             col = sub.gameObject.AddComponent<CapsuleCollider>();
             col.radius += interactionRadius;
             col.isTrigger = true;
@@ -95,45 +97,6 @@ public abstract class State
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         // Creating child gameobject holding SPriteRenderer
         // TODO : AAAAAAALL OF THE BELOW HUD RELATED CODE HAS TO GO, it's buggy, and bound to be deleted anyways 
         //bool hudElementDetected = false;
@@ -146,18 +109,21 @@ public abstract class State
         //    }
         //if (!hudElementDetected)
         //{
-        hudButtonGo = new GameObject();
-        hudButtonGo.AddComponent<BillboardBehavior>();
-        hudButtonGo.transform.position = sub.transform.position + Vector3.up * 2;
-        hudButtonGo.transform.parent = sub.transform;
-        //}
-        hudButtonGo.name = sub.gameObject.name + "_hudButtonGo";
-        hudButtonGo.SetActive(false);
 
-        // Set SpriteRenderer buttonSprite
-        buttonSprite = hudButtonGo.AddComponent<SpriteRenderer>();
-        buttonSprite.sprite = interactionButtonSprite;
+        else
+        {
+            hudButtonGo = new GameObject();
+            hudButtonGo.AddComponent<BillboardBehavior>();
+            hudButtonGo.transform.position = sub.transform.position + Vector3.up * 2;
+            hudButtonGo.transform.parent = sub.transform;
+            //}
+            hudButtonGo.name = sub.gameObject.name + "_hudButtonGo";
+            hudButtonGo.SetActive(false);
 
+            // Set SpriteRenderer buttonSprite
+            buttonSprite = hudButtonGo.AddComponent<SpriteRenderer>();
+            buttonSprite.sprite = interactionButtonSprite;
+        }
 
 
 
