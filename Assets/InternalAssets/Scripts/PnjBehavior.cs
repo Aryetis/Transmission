@@ -60,7 +60,8 @@ public class PnjBehavior : MonoBehaviour {
             direction = spawnPoint - transform.position;
             direction.Normalize();
         }
+        direction = new Vector3(direction.x, 0, direction.z);
         transform.LookAt(direction);
-        transform.position = transform.position + new Vector3(direction.x, 0, direction.z) * Time.deltaTime;
+        transform.position = transform.position + direction * Time.deltaTime;
     }
 }
