@@ -1,18 +1,20 @@
 ﻿using UnityEngine;
 
-public class Sleeping : State
+public class FireGuy_FireState : State
 {
-    public Sleeping(BeingBehavior sub_, Interactiblebutton interactibleButtonEnum_, float interactionRadius_, NameState nameState_) : base(sub_, interactibleButtonEnum_, interactionRadius_, nameState_) {
+    public FireGuy_FireState(BeingBehavior sub_, Interactiblebutton interactibleButtonEnum_, float interactionRadius_, NameState nameState_) : base(sub_, interactibleButtonEnum_, interactionRadius_, nameState_)
+    {
     }
 
     public override void Tick()
     {
 
+
     }
 
     public override void OnStateEnter()
     {
-
+        sub.gameObject.GetComponent<Renderer>().material.color = Color.red;
     }
 
     public override void OnStateExit()
@@ -34,24 +36,21 @@ public class Sleeping : State
             hudButtonGo.SetActive(false);
     }
 
-    public override void AInteraction()
-    {
+    public override void AInteraction() {
+        Debug.Log("A PU LE FEU");
+        sub.SetState(new FireGuy_NeutralState(sub, interactibleButtonEnum, interactionRadius, nameState));
+    }
+
+    public override void BInteraction() {
         Debug.Log("BACK TO YOU");
     }
 
-    public override void BInteraction()
-    {
-        Debug.Log("BACK TO YOU");
-    }
-
-    public override void XInteraction()
-    {
+    public override void XInteraction() {
 
         Debug.Log("BACK TO YOU");
     }
 
-    public override void YInteraction()
-    {
+    public override void YInteraction() {
         Debug.Log("BACK TO YOU");
     }
 }

@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
 
+public enum NameState { Fire, Neutral, Water, Air, Earth, Love, Dead }
+
 public abstract class State
 {
     protected BeingBehavior sub; // subject of the state
     protected Interactiblebutton interactibleButtonEnum; // HUD interaction button, state dependant 
+    protected NameState nameState;
     protected float interactionRadius;
     // HUD related
     protected Sprite interactionButtonSprite;
@@ -24,7 +27,7 @@ public abstract class State
     public virtual void YInteraction() { }
 
 
-    public State(BeingBehavior sub_, Interactiblebutton interactibleButtonEnum_, float interactionRadius_)
+    public State(BeingBehavior sub_, Interactiblebutton interactibleButtonEnum_, float interactionRadius_, NameState nameState_)
     {
         sub = sub_;
         interactibleButtonEnum = interactibleButtonEnum_;

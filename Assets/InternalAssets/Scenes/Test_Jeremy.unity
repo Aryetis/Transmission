@@ -224,9 +224,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fbd5838144aae541b0692fb26d6f4e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cat: 10
-  interactiblebuttonenum: 4
-  interactionradius: 0
 --- !u!23 &1047492176
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -405,7 +402,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cat: 8
-  interactiblebuttonenum: 0
+  nameState: 0
+  interactiblebuttonenum: 1
   interactionradius: 1
 --- !u!23 &1321211723
 MeshRenderer:

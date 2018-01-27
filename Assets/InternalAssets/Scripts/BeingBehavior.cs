@@ -9,7 +9,8 @@ public class BeingBehavior : MonoBehaviour
     // State/category related dpf
     public enum Category { Mushroom, Fisherman, BridgeBuilder, Gardener, Windmill, AirGuy, EarthGuy, WaterGuy, FireGuy, Brazier, Player, TEST }; // Used to set initial State
     public Category cat = Category.FireGuy;
-    private State state;
+    public State state;
+    public NameState nameState;
 
     // Entry values for HUD
     [SerializeField] private Interactiblebutton interactiblebuttonenum;
@@ -24,18 +25,21 @@ public class BeingBehavior : MonoBehaviour
             // TODO insert loooooooooots of states 
 
             case Category.FireGuy: {
-                    SetState(new FireState(gameObject.GetComponent<BeingBehavior>(), interactiblebuttonenum, interactionradius));
-                    break;
+                nameState = NameState.Fire;
+                SetState(new FireGuy_FireState(gameObject.GetComponent<BeingBehavior>(), interactiblebuttonenum, interactionradius, nameState));
+                break;
             }
 
             case Category.TEST :
             {
-                SetState(new Sleeping(gameObject.GetComponent<BeingBehavior>(), interactiblebuttonenum, interactionradius));
+                nameState = NameState.Neutral;
+                SetState(new Sleeping(gameObject.GetComponent<BeingBehavior>(), interactiblebuttonenum, interactionradius, nameState));
                 break;
             }
             case Category.Player :
             {
-                SetState(new PlayerEmpty(gameObject.GetComponent<BeingBehavior>(), interactiblebuttonenum, interactionradius));
+                nameState = NameState.Neutral;
+                SetState(new PlayerEmpty(gameObject.GetComponent<BeingBehavior>(), interactiblebuttonenum, interactionradius, nameState));
                 break;
             }
             default:
@@ -44,6 +48,10 @@ public class BeingBehavior : MonoBehaviour
                 break;
             }
         }
+    }
+
+    private void Update() {
+        state.Tick();
     }
 
     private void OnTriggerEnter(Collider col)
@@ -62,6 +70,8 @@ public class BeingBehavior : MonoBehaviour
             state.OnStateExit();
 
         state = state_;
+        
+        
         gameObject.name = cat.ToString() + "_" + state_.GetType().Name;
 
         if (state != null)
