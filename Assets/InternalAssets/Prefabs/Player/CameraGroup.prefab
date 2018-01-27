@@ -53,7 +53,8 @@ GameObject:
   - component: {fileID: 20868522518253452}
   - component: {fileID: 124090192751987222}
   - component: {fileID: 81343087792030362}
-  - component: {fileID: 114932001451049720}
+  - component: {fileID: 114794510898444992}
+  - component: {fileID: 114841422979128098}
   - component: {fileID: 114500379728965576}
   - component: {fileID: 114408793301163972}
   m_Layer: 0
@@ -202,7 +203,6 @@ MonoBehaviour:
   maxXRotation: 30
   inverseXRotation: 1
   rotationLerprate: 8
-  bloom: {fileID: 114932001451049720}
   vignette: {fileID: 114408793301163972}
   fisheye: {fileID: 114500379728965576}
   redOverlay: {fileID: 0}
@@ -244,7 +244,7 @@ MonoBehaviour:
   strengthX: 0
   strengthY: 0
   fishEyeShader: {fileID: 4800000, guid: 874ceab4425f64bccb1d14032f4452b1, type: 3}
---- !u!114 &114932001451049720
+--- !u!114 &114794510898444992
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -252,15 +252,47 @@ MonoBehaviour:
   m_GameObject: {fileID: 1576110191190884}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4975a6e437fc3b149a8cd508ce5bdd69, type: 3}
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  threshold: 0.25
-  intensity: 1
-  blurSize: 0.75
-  blurIterations: 3
-  blurType: 0
-  fastBloomShader: {fileID: 4800000, guid: 68a00c837b82e4c6d92e7da765dc5f1d, type: 3}
+  profile: {fileID: 11400000, guid: 12350bc2249997e41818999773347cd1, type: 2}
+--- !u!114 &114841422979128098
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1576110191190884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83d8db0ec466c14429f58c68c16398a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quality: 1
+  resolution: 2
+  simpleTweakMode: 1
+  focalPoint: 0.3
+  smoothness: 6
+  focalZDistance: 0
+  focalZStartCurve: 1
+  focalZEndCurve: 1
+  objectFocus: {fileID: 0}
+  focalSize: 10
+  bluriness: 4
+  maxBlurSpread: 2
+  foregroundBlurExtrude: 1.15
+  dofBlurShader: {fileID: 4800000, guid: bb4af680337344a4abad65a4e8873c50, type: 3}
+  dofShader: {fileID: 4800000, guid: 987fb0677d01f43ce8a9dbf12271e668, type: 3}
+  visualize: 0
+  bokehDestination: 1
+  bokeh: 0
+  bokehSupport: 1
+  bokehShader: {fileID: 4800000, guid: 57cdacf9b217546aaa18edf39a6151c0, type: 3}
+  bokehTexture: {fileID: 2800000, guid: fc00ec05a89da4ff695a4273715cd5ce, type: 3}
+  bokehScale: 2.4
+  bokehIntensity: 0.15
+  bokehThresholdContrast: 0.1
+  bokehThresholdLuminance: 0.55
+  bokehDownsample: 1
 --- !u!124 &124090192751987222
 Behaviour:
   m_ObjectHideFlags: 1
