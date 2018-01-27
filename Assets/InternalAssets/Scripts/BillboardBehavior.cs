@@ -1,19 +1,24 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+[ExecuteInEditMode]
 public class BillboardBehavior : MonoBehaviour
 {
+	public Transform lookAtTransform;
+	public bool verticalBillboard = false;
 
-	// Use this for initialization
-	//void Start ()
- //   {
-		
-	//}
-	
-	// Update is called once per frame
-	void Update ()
+	void LateUpdate ()
     {
-        transform.LookAt(Camera.main.transform.position);
-    }
+		//transform.LookAt(lookAtTransform);
+		if (!verticalBillboard)
+			transform.rotation = lookAtTransform.rotation;
+		else
+		{
+			if (!CameraBehaviour.Instance)
+				return;
+
+			Vector3 targetPos = lookAtTransform.position - CameraBehaviour.Instance.yRotationGroup.forward * 10;
+			targetPos.y = transform.position.y;
+			transform.LookAt(targetPos);
+		}
+	}
 }
