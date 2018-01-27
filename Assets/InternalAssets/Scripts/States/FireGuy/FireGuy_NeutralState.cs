@@ -40,8 +40,13 @@ public class FireGuy_NeutralState : State
     }
 
     public override void BInteraction() {
-        Debug.Log("AGROUGROU");
-        if (GameObject.FindGameObjectWithTag("Player").GetComponent<BeingBehavior>().nameState.Equals(nameState)) {
+        
+        BeingBehavior player = GameObject.FindGameObjectWithTag("Player").GetComponent<BeingBehavior>();
+        if (player.nameState.Equals(NameState.Fire)) {
+            Debug.Log("FIRE IS BACK");
+            nameState = NameState.Fire;
+            player.nameState = NameState.Neutral;
+            player.SetState(new PlayerEmpty(player, player.interactiblebuttonenum, player.interactionradius, player.nameState));
             sub.SetState(new FireGuy_FireState(sub, interactibleButtonEnum, interactionRadius, nameState));
         }
         

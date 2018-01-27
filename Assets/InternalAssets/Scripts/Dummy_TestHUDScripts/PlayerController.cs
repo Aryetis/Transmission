@@ -7,7 +7,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 	private float speed = 10.0f;
-    BeingBehavior interactibleGo;
+    public BeingBehavior interactibleGo;
 
     //private void Start()
     //{
@@ -19,10 +19,14 @@ public class PlayerController : MonoBehaviour
 		transform.position = new Vector3(transform.position.x - Input.GetAxis("Vertical")*speed*Time.deltaTime, 
 		                        transform.position.y, 
 		                        transform.position.z + Input.GetAxis("Horizontal")*speed*Time.deltaTime);
-        if (Input.GetButtonDown("ButtonA") && interactibleGo != null)
+        if (Input.GetButtonDown("ButtonA") && interactibleGo != null) {
             interactibleGo.AInteractionPassThrought();
-        else if (Input.GetButtonDown("ButtonB") && interactibleGo != null)
+            //gameObject.GetComponent<BeingBehavior>().AInteractionPassThrought();
+        }
+        else if (Input.GetButtonDown("ButtonB") && interactibleGo != null) {
             interactibleGo.BInteractionPassThrought();
+            //gameObject.GetComponent<BeingBehavior>().BInteractionPassThrought();
+        }
         else if (Input.GetButtonDown("ButtonX") && interactibleGo != null)
             interactibleGo.XInteractionPassThrought();
         else if (Input.GetButtonDown("ButtonY") && interactibleGo != null)

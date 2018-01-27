@@ -12,7 +12,7 @@ public class PlayerEmpty : State
 
     public override void OnStateEnter()
     {
-
+        sub.gameObject.GetComponent<Renderer>().material.color = Color.grey;
     }
 
     public override void OnStateExit()
@@ -36,7 +36,13 @@ public class PlayerEmpty : State
 
     public override void AInteraction()
     {
-
+        //BeingBehavior objectInteract = sub.gameObject.GetComponent<PlayerController>().interactibleGo;
+        //if (objectInteract != null) {
+        //    if (objectInteract.nameState != NameState.Neutral) {
+        //        nameState = objectInteract.nameState;
+        //        sub.SetState(new Player_FireState(sub, interactibleButtonEnum, interactionRadius, nameState));
+        //    }
+        //}
     }
 
     public override void BInteraction()

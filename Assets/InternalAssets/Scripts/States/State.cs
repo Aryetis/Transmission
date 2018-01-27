@@ -84,21 +84,21 @@ public abstract class State
 
         // Creating child gameobject holding SPriteRenderer
         // TODO : AAAAAAALL OF THE BELOW HUD RELATED CODE HAS TO GO, it's buggy, and bound to be deleted anyways 
-        bool hudElementDetected = false;
-        int childrenCount = sub.gameObject.transform.childCount;
-        foreach (Transform goct in sub.gameObject.transform)
-            if ( goct.gameObject.CompareTag("HUDElement"))
-            {
-                hudElementDetected = true;
-                break;
-            }
-        if (!hudElementDetected)
-        {
+        //bool hudElementDetected = false;
+        //int childrenCount = sub.gameObject.transform.childCount;
+        //foreach (Transform goct in sub.gameObject.transform)
+        //    if ( goct.gameObject.CompareTag("HUDElement"))
+        //    {
+        //        hudElementDetected = true;
+        //        break;
+        //    }
+        //if (!hudElementDetected)
+        //{
             hudButtonGo = new GameObject();
             hudButtonGo.AddComponent<BillboardBehavior>();
             hudButtonGo.transform.position = sub.transform.position + Vector3.up * 2;
             hudButtonGo.transform.parent = sub.transform;
-        }
+        //}
         hudButtonGo.name = sub.gameObject.name + "_hudButtonGo";
         hudButtonGo.SetActive(false);
 

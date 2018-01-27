@@ -38,7 +38,12 @@ public class FireGuy_FireState : State
 
     public override void AInteraction() {
         Debug.Log("A PU LE FEU");
+        nameState = NameState.Neutral;
+        BeingBehavior player = GameObject.FindGameObjectWithTag("Player").GetComponent<BeingBehavior>();
+        player.nameState = NameState.Fire;
+        player.SetState(new Player_FireState(player, player.interactiblebuttonenum, player.interactionradius, player.nameState));
         sub.SetState(new FireGuy_NeutralState(sub, interactibleButtonEnum, interactionRadius, nameState));
+        
     }
 
     public override void BInteraction() {

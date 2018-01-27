@@ -13,8 +13,8 @@ public class BeingBehavior : MonoBehaviour
     public NameState nameState;
 
     // Entry values for HUD
-    [SerializeField] private Interactiblebutton interactiblebuttonenum;
-    [SerializeField] private float interactionradius;
+    public Interactiblebutton interactiblebuttonenum;
+    public float interactionradius;
 
 
     // Use this for initialization
