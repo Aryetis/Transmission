@@ -22,6 +22,16 @@ public class LightSpot : MonoBehaviour {
 		}
 	}
 
+	private void OnTriggerEnter(Collider other)
+	{
+		CharacterBehaviour.Instance.AddOffroadAnchor(this);	
+	}
+
+	private void OnTriggerExit(Collider other)
+	{
+		CharacterBehaviour.Instance.RemoveOffroadAnchor(this);
+	}
+
 #if UNITY_EDITOR
 	// More accurate than OnDrawGizmos
 	private void Update()
@@ -31,7 +41,11 @@ public class LightSpot : MonoBehaviour {
 
 		lightCollider.isTrigger = true;
 		lightCollider.radius = spotRadius;
-		lightCollider.center = new Vector3(0, -transform.position.y, 0);
+		lightCollider.center = new Vector3(0, 0, transform.position.y);
+
+		transform.gameObject.layer = 9;
+
+		transform.eulerAngles = new Vector3(90, 0, 0);
 	}
 
 	private void OnDrawGizmos()

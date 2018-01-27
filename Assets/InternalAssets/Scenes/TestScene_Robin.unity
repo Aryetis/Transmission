@@ -14,7 +14,7 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 8
-  m_Fog: 1
+  m_Fog: 0
   m_FogColor: {r: 0.08643661, g: 0.08628895, b: 0.08823532, a: 0}
   m_FogMode: 1
   m_FogDensity: 0.01
@@ -495,6 +495,7 @@ Transform:
   - {fileID: 451293065}
   - {fileID: 510862820}
   - {fileID: 900737978}
+  - {fileID: 846609626}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -944,7 +945,7 @@ GameObject:
   - component: {fileID: 451293068}
   - component: {fileID: 451293067}
   - component: {fileID: 451293066}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LightSpot (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -957,7 +958,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 451293064}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: -6.28, y: 6.2, z: -1.48}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -987,7 +988,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 20
-  m_Center: {x: 0, y: -6.2, z: 0}
+  m_Center: {x: 0, y: 0, z: 6.2}
 --- !u!108 &451293068
 Light:
   m_ObjectHideFlags: 0
@@ -1152,7 +1153,7 @@ GameObject:
   - component: {fileID: 510862823}
   - component: {fileID: 510862822}
   - component: {fileID: 510862821}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LightSpot (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1165,8 +1166,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 510862819}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 19.7, y: 7, z: 1.9}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 23.2, y: 7, z: 2.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 182238719}
@@ -1195,7 +1196,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 20
-  m_Center: {x: 0, y: -7, z: 0}
+  m_Center: {x: 0, y: 0, z: 7}
 --- !u!108 &510862823
 Light:
   m_ObjectHideFlags: 0
@@ -1567,6 +1568,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1196962281}
     m_Modifications:
+    - target: {fileID: 114454004243737326, guid: fffc9f0aba3d6534e975f2d8e09e8efa,
+        type: 2}
+      propertyPath: offroadDotCurve.m_Curve.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4825414679620510, guid: fffc9f0aba3d6534e975f2d8e09e8efa, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1609,21 +1615,75 @@ Prefab:
       propertyPath: cameraBehaviour
       value: 
       objectReference: {fileID: 2083504836}
-    - target: {fileID: 4342611516793408, guid: fffc9f0aba3d6534e975f2d8e09e8efa, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
+    - target: {fileID: 114454004243737326, guid: fffc9f0aba3d6534e975f2d8e09e8efa,
+        type: 2}
+      propertyPath: offroadDotCurve.m_Curve.Array.data[0].time
+      value: -1
       objectReference: {fileID: 0}
-    - target: {fileID: 4342611516793408, guid: fffc9f0aba3d6534e975f2d8e09e8efa, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
+    - target: {fileID: 114454004243737326, guid: fffc9f0aba3d6534e975f2d8e09e8efa,
+        type: 2}
+      propertyPath: offroadDotCurve.m_Curve.Array.data[0].outSlope
+      value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 4342611516793408, guid: fffc9f0aba3d6534e975f2d8e09e8efa, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0.08715574
+    - target: {fileID: 114454004243737326, guid: fffc9f0aba3d6534e975f2d8e09e8efa,
+        type: 2}
+      propertyPath: offroadDotCurve.m_Curve.Array.data[1].outSlope
+      value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 4342611516793408, guid: fffc9f0aba3d6534e975f2d8e09e8efa, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0.9961947
+    - target: {fileID: 114454004243737326, guid: fffc9f0aba3d6534e975f2d8e09e8efa,
+        type: 2}
+      propertyPath: offroadDotCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114454004243737326, guid: fffc9f0aba3d6534e975f2d8e09e8efa,
+        type: 2}
+      propertyPath: offroadDotCurve.m_Curve.Array.data[1].time
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114454004243737326, guid: fffc9f0aba3d6534e975f2d8e09e8efa,
+        type: 2}
+      propertyPath: offroadDotCurve.m_Curve.Array.data[1].value
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114454004243737326, guid: fffc9f0aba3d6534e975f2d8e09e8efa,
+        type: 2}
+      propertyPath: offroadDotCurve.m_Curve.Array.data[1].inSlope
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114454004243737326, guid: fffc9f0aba3d6534e975f2d8e09e8efa,
+        type: 2}
+      propertyPath: offroadDotCurve.m_Curve.Array.data[2].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114454004243737326, guid: fffc9f0aba3d6534e975f2d8e09e8efa,
+        type: 2}
+      propertyPath: offroadDotCurve.m_Curve.Array.data[2].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114454004243737326, guid: fffc9f0aba3d6534e975f2d8e09e8efa,
+        type: 2}
+      propertyPath: offroadDotCurve.m_Curve.Array.data[2].inSlope
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114454004243737326, guid: fffc9f0aba3d6534e975f2d8e09e8efa,
+        type: 2}
+      propertyPath: offroadDotCurve.m_Curve.Array.data[2].outSlope
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114454004243737326, guid: fffc9f0aba3d6534e975f2d8e09e8efa,
+        type: 2}
+      propertyPath: offroadDotCurve.m_Curve.Array.data[0].tangentMode
+      value: 69
+      objectReference: {fileID: 0}
+    - target: {fileID: 114454004243737326, guid: fffc9f0aba3d6534e975f2d8e09e8efa,
+        type: 2}
+      propertyPath: offroadDotCurve.m_Curve.Array.data[1].tangentMode
+      value: 69
+      objectReference: {fileID: 0}
+    - target: {fileID: 114454004243737326, guid: fffc9f0aba3d6534e975f2d8e09e8efa,
+        type: 2}
+      propertyPath: offroadDotCurve.m_Curve.Array.data[2].tangentMode
+      value: 69
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fffc9f0aba3d6534e975f2d8e09e8efa, type: 2}
@@ -1777,6 +1837,97 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &846609625
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 846609626}
+  - component: {fileID: 846609629}
+  - component: {fileID: 846609628}
+  - component: {fileID: 846609627}
+  m_Layer: 9
+  m_Name: LightSpot (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &846609626
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 846609625}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -39.6, y: 15.8, z: 26.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 182238719}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &846609627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 846609625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08d793579aa1ff24297ec7c6357095e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spotRadius: 40
+--- !u!135 &846609628
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 846609625}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 40
+  m_Center: {x: 0, y: 0, z: 15.8}
+--- !u!108 &846609629
+Light:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 846609625}
+  m_Enabled: 1
+  serializedVersion: 8
+  m_Type: 2
+  m_Color: {r: 1, g: 0.7338742, b: 0.5294118, a: 1}
+  m_Intensity: 16
+  m_Range: 70
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 4
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!1 &870317951
 GameObject:
   m_ObjectHideFlags: 0
@@ -1962,7 +2113,7 @@ GameObject:
   - component: {fileID: 900737981}
   - component: {fileID: 900737980}
   - component: {fileID: 900737979}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LightSpot (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1975,7 +2126,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 900737977}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 41.03, y: 4.7, z: -10.81}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -2005,7 +2156,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 12.85
-  m_Center: {x: 0, y: -4.7, z: 0}
+  m_Center: {x: 0, y: 0, z: 4.7}
 --- !u!108 &900737981
 Light:
   m_ObjectHideFlags: 0
@@ -4053,6 +4204,21 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 650857451}
+    - target: {fileID: 114737165710451824, guid: 786a095be194d9340be5118fe1e9b782,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0.6397059
+      objectReference: {fileID: 0}
+    - target: {fileID: 114737165710451824, guid: 786a095be194d9340be5118fe1e9b782,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0.014111173
+      objectReference: {fileID: 0}
+    - target: {fileID: 114737165710451824, guid: 786a095be194d9340be5118fe1e9b782,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0.23414765
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 786a095be194d9340be5118fe1e9b782, type: 2}
   m_IsPrefabParent: 0
