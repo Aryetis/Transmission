@@ -11,6 +11,7 @@ Shader "FlashTools/SwfSimple" {
 	}
 
 	SubShader {
+
 		Tags {
 			"Queue"             = "Transparent"
 			"IgnoreProjector"   = "True"

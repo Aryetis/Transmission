@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c9fa30e000f3420796cfbd1e09a86d6, type: 3}
+  m_Name: Character._Stage_
+  m_EditorClassIdentifier: 
+  Name: _Stage_
+  Sprite: {fileID: 21300000, guid: 5908301d9d6a7274ca1ff96661b1fc50, type: 3}
+  FrameRate: 25
+  AssetGUID: 4695be71e6a856642b1b3b61e1f099ed
+  Sequences:
+  - Name: Default
+    Frames:
+    - Labels: []
+      MeshData:
+        SubMeshes:
+        - StartVertex: 0
+          IndexCount: 12
+        Vertices:
+        - {x: 1.2635, y: -2.7825}
+        - {x: 1.8219961, y: -2.7825}
+        - {x: 1.8219961, y: -3.7514935}
+        - {x: 1.2635, y: -3.7514935}
+        - {x: 1.0365001, y: -2.0475001}
+        - {x: 2.0289924, y: -2.0475001}
+        - {x: 2.0289924, y: -2.9199958}
+        - {x: 1.0365001, y: -2.9199958}
+        UVs: bf5fff4fff77ff5dff21bf6cbf377f85
+        AddColors: 00000000000000000000000000000000
+        MulColors: 00020002000200020002000200020002
+      Materials:
+      - {fileID: 2100000, guid: d58d9a5e482e8429f8d7d18a9538d94a, type: 2}
