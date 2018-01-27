@@ -41,6 +41,10 @@ public class CharacterBehaviour : MonoBehaviour {
 	public Animator startPanel;
 	public UI_DangerText dangerText;
 
+	[Header("AUDIO")]
+	[Space(10)]
+	public AudioSource SFXDanger;
+
 	// Private
 	private int startLockDelay = 10;
 	// Cache
@@ -129,10 +133,19 @@ public class CharacterBehaviour : MonoBehaviour {
 		if (leftStickAxis.magnitude > 1f)
 			leftStickAxis = leftStickAxis.normalized;
 
-		if (Input.GetButtonDown("Cancel") && Time.timeSinceLevelLoad < (float)startLockDelay)
+		if (Input.GetButtonDown("Cancel"))
 		{
-			startPanel.Play("Start", 0, 1);
-			UnlockCharacter();
+			if (Time.timeSinceLevelLoad < (float)startLockDelay)
+			{
+				startPanel.Play("Start", 0, 1);
+				UnlockCharacter();
+
+				startLockDelay = 0;
+			}
+			else
+			{
+				EndGame();
+			}
 		}
 	}
 
@@ -153,6 +166,10 @@ public class CharacterBehaviour : MonoBehaviour {
 
 	private void OffroadStatus ()
 	{
+		// Return cradasse
+		if (leftStickAxis.magnitude < 0.01f && Time.timeSinceLevelLoad > 1f)
+			return;
+
 		if (offroadAnchors.Count == 0)
 		{
 			offroadLerp = 0f;
@@ -184,6 +201,9 @@ public class CharacterBehaviour : MonoBehaviour {
 			offroadDot = Mathf.InverseLerp(1f, offroadDotValue, offroadLerp);
 
 			dangerText.targetAlpha = offroadDot < 0.5f ? 1f : 0f;
+
+			SFXDanger.volume = offroadLerp * 0.7f;
+			MusicController.Instance.SetMusicVolume(1f - SFXDanger.volume);
 		}
 
 		CameraBehaviour.Instance.SetOffroadFX(offroadLerp);
