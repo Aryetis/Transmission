@@ -4,7 +4,6 @@ public class Awake : State
 {
     public Awake(BeingBehavior sub_, Interactiblebutton interactibleButtonEnum_, float interactionRadius_) : base(sub_, interactibleButtonEnum_, interactionRadius_)
     {
-        //SetHud(); // Set hud using interactibleButtonEnum's mother value
     }
 
     public override void Tick()

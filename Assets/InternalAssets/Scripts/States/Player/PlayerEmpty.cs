@@ -4,7 +4,6 @@ public class PlayerEmpty : State
 {
     public PlayerEmpty(BeingBehavior sub_, Interactiblebutton interactibleButtonEnum_, float interactionRadius_) : base(sub_, interactibleButtonEnum_, interactionRadius_)
     {
-        //SetHud(); // Set hud using interactibleButtonEnum's mother value
     }
 
     public override void Tick()
