@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-public class FireGuy_FireState : State
+public class Brazier_FireState : State
 {
-    public FireGuy_FireState(BeingBehavior sub_, Interactiblebutton interactibleButtonEnum_, float interactionRadius_, NameState nameState_) : base(sub_, interactibleButtonEnum_, interactionRadius_, nameState_)
+    public Brazier_FireState(BeingBehavior sub_, Interactiblebutton interactibleButtonEnum_, float interactionRadius_, NameState nameState_) : base(sub_, interactibleButtonEnum_, interactionRadius_, nameState_)
     {
     }
 
@@ -14,7 +14,7 @@ public class FireGuy_FireState : State
 
     public override void OnStateEnter()
     {
-        sub.gameObject.GetComponent<Renderer>().material.color = Color.red;
+        sub.gameObject.GetComponent<Renderer>().material.color = Color.yellow;
     }
 
     public override void OnStateExit()
@@ -37,24 +37,23 @@ public class FireGuy_FireState : State
     }
 
     public override void AInteraction() {
-        Debug.Log("A PU LE FEU");
         nameState = NameState.Neutral;
         BeingBehavior player = GameObject.FindGameObjectWithTag("Player").GetComponent<BeingBehavior>();
         player.nameState = NameState.Fire;
         player.SetState(new Player_FireState(player, player.interactiblebuttonenum, player.interactionradius, player.nameState));
-        sub.SetState(new FireGuy_NeutralState(sub, interactibleButtonEnum, interactionRadius, nameState));
-        
+        sub.SetState(new Brazier_NeutralState(sub, interactibleButtonEnum, interactionRadius, nameState));
+
     }
 
     public override void BInteraction() {
         BeingBehavior player = GameObject.FindGameObjectWithTag("Player").GetComponent<BeingBehavior>();
-        if (player.nameState.Equals(NameState.Water)) {
-            Debug.Log("IS DEAD");
+        if (player.nameState.Equals(NameState.Wind) || player.nameState.Equals(NameState.Water)) {
             nameState = NameState.Dead;
             player.nameState = NameState.Neutral;
             player.SetState(new PlayerEmpty(player, player.interactiblebuttonenum, player.interactionradius, player.nameState));
-            GameObject.Destroy(sub.gameObject);
+            sub.SetState(new Brazier_DeadState(sub, interactibleButtonEnum, interactionRadius, nameState));
         }
+        
     }
 
     public override void XInteraction() {

@@ -21,11 +21,9 @@ public class PlayerController : MonoBehaviour
 		                        transform.position.z + Input.GetAxis("Horizontal")*speed*Time.deltaTime);
         if (Input.GetButtonDown("ButtonA") && interactibleGo != null) {
             interactibleGo.AInteractionPassThrought();
-            //gameObject.GetComponent<BeingBehavior>().AInteractionPassThrought();
         }
         else if (Input.GetButtonDown("ButtonB") && interactibleGo != null) {
             interactibleGo.BInteractionPassThrought();
-            //gameObject.GetComponent<BeingBehavior>().BInteractionPassThrought();
         }
         else if (Input.GetButtonDown("ButtonX") && interactibleGo != null)
             interactibleGo.XInteractionPassThrought();
