@@ -13,7 +13,7 @@ public class FireGuy_NeutralState : State
 
     public override void OnStateEnter()
     {
-        sub.gameObject.GetComponent<Renderer>().material.color = Color.gray;
+        //sub.gameObject.GetComponent<Renderer>().material.color = Color.gray;
     }
 
     public override void OnStateExit()

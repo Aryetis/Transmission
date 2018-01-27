@@ -4,7 +4,7 @@ public enum NameState { Fire, Neutral, Water, Air, Earth, Love, Dead }
 
 public abstract class State
 {
-    protected BeingBehavior sub; // subject of the state
+    public BeingBehavior sub; // subject of the state
     protected Interactiblebutton interactibleButtonEnum; // HUD interaction button, state dependant 
     protected NameState nameState;
     protected float interactionRadius;
@@ -84,32 +84,7 @@ public abstract class State
             col.isTrigger = true;
         }
 
-        // Set HUD / ActionPanel
-        //hudButtonGo = GameObject.Instantiate(Resources.Load<GameObject>("Prefabs/UI/ActionPanel"), GameObject.Find("MainCanvas").transform);
-
-
-        //hudButtonGo = GameObject.Instantiate(Resources.Load<GameObject>("Prefabs/UI/ActionPanel"));
-        //Debug.Log("sub.name :" + sub.name);
-        //Debug.Log("sub.transform.positiion :" + sub.transform.position);
-        //hudButtonGo.GetComponent<ActionPanel>().SetPosition(sub.transform.position + Vector3.up * 2.0f);
-        ////hudButtonGo.GetComponent<ActionPanel>().ShowPanel(true);
-
-
-
-
-        // Creating child gameobject holding SPriteRenderer
-        // TODO : AAAAAAALL OF THE BELOW HUD RELATED CODE HAS TO GO, it's buggy, and bound to be deleted anyways 
-        //bool hudElementDetected = false;
-        //int childrenCount = sub.gameObject.transform.childCount;
-        //foreach (Transform goct in sub.gameObject.transform)
-        //    if ( goct.gameObject.CompareTag("HUDElement"))
-        //    {
-        //        hudElementDetected = true;
-        //        break;
-        //    }
-        //if (!hudElementDetected)
-        //{
-
+        // Set HUD
         else
         {
             hudButtonGo = new GameObject();
@@ -124,39 +99,6 @@ public abstract class State
             buttonSprite = hudButtonGo.AddComponent<SpriteRenderer>();
             buttonSprite.sprite = interactionButtonSprite;
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 
     //void OnDestroy()
