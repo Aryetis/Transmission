@@ -12,7 +12,7 @@ public class PlayerEmpty : State
 
     public override void OnStateEnter()
     {
-        sub.gameObject.GetComponent<Renderer>().material.color = Color.grey;
+        //sub.gameObject.GetComponent<Renderer>().material.color = Color.grey;
     }
 
     public override void OnStateExit()

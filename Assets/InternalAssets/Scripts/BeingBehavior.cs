@@ -70,8 +70,7 @@ public class BeingBehavior : MonoBehaviour
         if (state != null)
             state.OnStateExit();
 
-        state = state_;
-        
+        state = state_;        
         
         gameObject.name = cat.ToString() + "_" + state_.GetType().Name;
 

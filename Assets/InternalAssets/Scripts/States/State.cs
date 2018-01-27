@@ -11,7 +11,7 @@ public abstract class State
     // HUD related
     protected Sprite interactionButtonSprite;
     protected CapsuleCollider col = null;
-    protected GameObject hudButtonGo = null;
+    public GameObject hudButtonGo = null;
     protected SpriteRenderer buttonSprite;
 
     public abstract void Tick();
@@ -82,6 +82,58 @@ public abstract class State
             col.isTrigger = true;
         }
 
+        // Set HUD / ActionPanel
+        //hudButtonGo = GameObject.Instantiate(Resources.Load<GameObject>("Prefabs/UI/ActionPanel"), GameObject.Find("MainCanvas").transform);
+
+
+        //hudButtonGo = GameObject.Instantiate(Resources.Load<GameObject>("Prefabs/UI/ActionPanel"));
+        //Debug.Log("sub.name :" + sub.name);
+        //Debug.Log("sub.transform.positiion :" + sub.transform.position);
+        //hudButtonGo.GetComponent<ActionPanel>().SetPosition(sub.transform.position + Vector3.up * 2.0f);
+        ////hudButtonGo.GetComponent<ActionPanel>().ShowPanel(true);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         // Creating child gameobject holding SPriteRenderer
         // TODO : AAAAAAALL OF THE BELOW HUD RELATED CODE HAS TO GO, it's buggy, and bound to be deleted anyways 
         //bool hudElementDetected = false;
@@ -94,10 +146,10 @@ public abstract class State
         //    }
         //if (!hudElementDetected)
         //{
-            hudButtonGo = new GameObject();
-            hudButtonGo.AddComponent<BillboardBehavior>();
-            hudButtonGo.transform.position = sub.transform.position + Vector3.up * 2;
-            hudButtonGo.transform.parent = sub.transform;
+        hudButtonGo = new GameObject();
+        hudButtonGo.AddComponent<BillboardBehavior>();
+        hudButtonGo.transform.position = sub.transform.position + Vector3.up * 2;
+        hudButtonGo.transform.parent = sub.transform;
         //}
         hudButtonGo.name = sub.gameObject.name + "_hudButtonGo";
         hudButtonGo.SetActive(false);
@@ -105,6 +157,40 @@ public abstract class State
         // Set SpriteRenderer buttonSprite
         buttonSprite = hudButtonGo.AddComponent<SpriteRenderer>();
         buttonSprite.sprite = interactionButtonSprite;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 
     //void OnDestroy()
