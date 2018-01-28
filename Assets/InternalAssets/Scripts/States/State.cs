@@ -35,6 +35,10 @@ public abstract class State
         SetHud();
     }
 
+    public void SetHud(Interactiblebutton but) {
+        interactibleButtonEnum = but;
+        SetHud();
+    }
 
     public void SetHud()
     {
@@ -43,12 +47,12 @@ public abstract class State
         {
             case Interactiblebutton.a:
                 {
-                    interactionButtonSprite = Resources.Load<Sprite>("ButtonImages/xboxControllerButtonA");
+                    interactionButtonSprite = Resources.Load<Sprite>("ButtonImages/UI_Acquire");
                     break;
                 }
             case Interactiblebutton.b:
                 {
-                    interactionButtonSprite = Resources.Load<Sprite>("ButtonImages/xboxControllerButtonB");
+                    interactionButtonSprite = Resources.Load<Sprite>("ButtonImages/UI_Transmit");
                     break;
                 }
             case Interactiblebutton.x:

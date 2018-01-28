@@ -2,6 +2,8 @@
 
 public class Player_WaterState : State {
 
+    GameObject stateFX;
+
     public Player_WaterState(BeingBehavior sub_, Interactiblebutton interactibleButtonEnum_, float interactionRadius_, NameState nameState_) : base(sub_, interactibleButtonEnum_, interactionRadius_, nameState_) {
     }
 
@@ -10,11 +12,13 @@ public class Player_WaterState : State {
     }
 
     public override void OnStateEnter() {
-        sub.gameObject.GetComponent<Renderer>().material.color = Color.blue;
+        GameObject.Destroy(GameObject.Instantiate(sub.prefabGiveFX, sub.spawnerFxState.transform.position, Quaternion.identity), 0.5f);
+        stateFX = GameObject.Instantiate(sub.prefabWaterFXState, sub.spawnerFxState.transform.position, Quaternion.identity);
     }
 
     public override void OnStateExit() {
-
+        GameObject.Destroy(GameObject.Instantiate(sub.prefabGiveFX, sub.spawnerFxState.transform.position, Quaternion.identity), 0.5f);
+        GameObject.Destroy(stateFX);
     }
 
     public override void OnTriggerEnterPassThrought(Collider col) {

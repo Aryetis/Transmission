@@ -53,6 +53,8 @@ public class CharacterBehaviour : MonoBehaviour {
     private SwfClip animatorClip;
     private SwfClipController animatorController;
 
+    public GameObject prefabGiveFx;
+
     // Private
     private int startLockDelay = 10;
 	// Cache
@@ -162,13 +164,19 @@ public class CharacterBehaviour : MonoBehaviour {
 
         if (Input.GetButtonDown("ButtonA") && interactibleGo != null) {
             interactibleGo.AInteractionPassThrought();
+            animatorController.rateScale = 0.1f;
             animatorClip.sequence = "Character_Give";
             animatorController.loopMode = SwfClipController.LoopModes.Once;
-        }            
+            Destroy(Instantiate(prefabGiveFx, new Vector3(transform.position.x, transform.position.y+1.5f, transform.position.z), Quaternion.identity), 0.3f);
+            animatorController.rateScale = 1;
+        }
         else if (Input.GetButtonDown("ButtonB") && interactibleGo != null) {
             interactibleGo.BInteractionPassThrought();
+            animatorController.rateScale = 0.1f;
             animatorClip.sequence = "Character_Give";
             animatorController.loopMode = SwfClipController.LoopModes.Once;
+            Destroy(Instantiate(prefabGiveFx, new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z), Quaternion.identity), 0.3f);
+            animatorController.rateScale = 1;
         }
         else if (Input.GetButtonDown("ButtonX") && interactibleGo != null)
             interactibleGo.XInteractionPassThrought();
