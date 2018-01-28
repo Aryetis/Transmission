@@ -263,7 +263,7 @@ public class CharacterBehaviour : MonoBehaviour {
 
 	public void RemoveOffroadAnchor (LightSpot spot)
 	{
-		if (offroadAnchors.Count == 1)
+		if (offroadAnchors.Count <= 0)
 			return;
 
 		offroadAnchors.Remove(spot);

@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4853004969131098}
   - component: {fileID: 108997708774696290}
   - component: {fileID: 135543155774482708}
-  - component: {fileID: 114801297436568218}
   m_Layer: 9
   m_Name: Portable_LightSpot
   m_TagString: Untagged
@@ -78,18 +77,6 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &114801297436568218
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1192637167453688}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08d793579aa1ff24297ec7c6357095e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spotRadius: 5
 --- !u!135 &135543155774482708
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -17,14 +17,14 @@ public class FireOrb_FireState : State {
         SetHud(Interactiblebutton.a);
         stateFX = GameObject.Instantiate(sub.prefabFireFXState, sub.spawnerFxState.transform.position, sub.gameObject.transform.rotation);
         stateFX.transform.parent = sub.gameObject.transform;
-        //light = GameObject.Instantiate(sub.prefabLightSpot, sub.spawnerFxState.transform.position, sub.gameObject.transform.rotation);
-        //light.transform.position = new Vector3(light.transform.position.x, light.transform.position.y + 2, light.transform.position.z);
-        //light.transform.parent = sub.gameObject.transform;
+        light = GameObject.Instantiate(sub.prefabLightSpot, sub.spawnerFxState.transform.position, sub.gameObject.transform.rotation);
+        light.transform.position = new Vector3(light.transform.position.x, light.transform.position.y + 2, light.transform.position.z);
+        light.transform.parent = sub.gameObject.transform;
     }
 
     public override void OnStateExit() {
         GameObject.Destroy(stateFX);
-        //GameObject.Destroy(light);
+        GameObject.Destroy(light);
     }
 
     public override void OnTriggerEnterPassThrought(Collider col) {
