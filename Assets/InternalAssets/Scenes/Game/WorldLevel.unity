@@ -1981,6 +1981,7 @@ MonoBehaviour:
   prefabFireFXState: {fileID: 0}
   prefabWaterFXState: {fileID: 0}
   prefabGiveFX: {fileID: 0}
+  prefabLightSpot: {fileID: 0}
   spawnerFxState: {fileID: 0}
   interactiblebuttonenum: 0
   interactionradius: 0
@@ -3925,6 +3926,7 @@ MonoBehaviour:
   prefabFireFXState: {fileID: 0}
   prefabWaterFXState: {fileID: 0}
   prefabGiveFX: {fileID: 0}
+  prefabLightSpot: {fileID: 0}
   spawnerFxState: {fileID: 0}
   interactiblebuttonenum: 4
   interactionradius: 2
@@ -27611,7 +27613,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.25560814}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.3221582}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -37748,7 +37750,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 28, y: 10, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1367847090
 GameObject:
@@ -38362,7 +38364,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 20, y: 10, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1405047465
 GameObject:
@@ -43191,7 +43193,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 28, y: 10, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1594689404
 GameObject:
@@ -43828,7 +43830,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 20, y: 10, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1603579582
 GameObject:
@@ -49147,7 +49149,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 28, y: 10, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1789692721
 GameObject:
@@ -57191,7 +57193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   img: {fileID: 1020785245}
-  alpha: 0.9820677
+  alpha: 0.99920756
   targetAlpha: 1
 --- !u!1 &2108585560
 GameObject:
