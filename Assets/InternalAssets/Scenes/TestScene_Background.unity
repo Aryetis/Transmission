@@ -4822,7 +4822,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.3709435}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.49993718}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -9495,7 +9495,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1945367134}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 26.86, y: 2.041, z: -0.735}
+  m_LocalPosition: {x: 36.95, y: 2.041, z: -0.735}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 374123959}
@@ -9528,8 +9528,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1945992207}
   m_LocalRotation: {x: -0.08715574, y: -0, z: -0, w: 0.9961947}
-  m_LocalPosition: {x: -0.099998474, y: 0.6992135, z: -0.123290196}
-  m_LocalScale: {x: 4.701841, y: 1.6320078, z: 4.7}
+  m_LocalPosition: {x: -0.46, y: 0.72, z: 0.02}
+  m_LocalScale: {x: 7.8365097, y: 2.0308428, z: 1.0861201}
   m_Children: []
   m_Father: {fileID: 1091658957}
   m_RootOrder: 0
@@ -10334,7 +10334,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   img: {fileID: 1020785245}
-  alpha: 0.9999996
+  alpha: 0.9999977
   targetAlpha: 1
 --- !u!1 &2108219762
 GameObject:
