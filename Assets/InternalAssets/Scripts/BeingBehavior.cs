@@ -7,13 +7,14 @@ public enum Interactiblebutton { a, b, x, y, none };
 public class BeingBehavior : MonoBehaviour
 {
     // State/category related dpf
-    public enum Category { FireOrb, Mushroom, Fisherman, BridgeBuilder, Gardener, Windmill, WindGuy, EarthGuy, WaterGuy, FireGuy, Brazier, Player }; // Used to set initial State
+    public enum Category { FireOrb, WaterOrb, Mushroom, Fisherman, BridgeBuilder, Gardener, Windmill, WindGuy, EarthGuy, WaterGuy, FireGuy, Brazier, Player }; // Used to set initial State
     public Category cat = Category.FireGuy;
     public State state;
     public NameState nameState;
     public GameObject prefabFireFXState;
     public GameObject prefabWaterFXState;
     public GameObject prefabGiveFX;
+    public GameObject prefabLightSpot;
     public GameObject spawnerFxState;
 
     // Entry values for HUD
@@ -31,6 +32,12 @@ public class BeingBehavior : MonoBehaviour
             case Category.FireOrb: {
                 nameState = NameState.Fire;
                 SetState(new FireOrb_FireState(gameObject.GetComponent<BeingBehavior>(), interactiblebuttonenum, interactionradius, nameState));
+                break;
+            }
+
+            case Category.WaterOrb: {
+                nameState = NameState.Water;
+                SetState(new WaterOrb_WaterState(gameObject.GetComponent<BeingBehavior>(), interactiblebuttonenum, interactionradius, nameState));
                 break;
             }
 

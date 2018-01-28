@@ -847,6 +847,8 @@ MonoBehaviour:
     type: 2}
   prefabGiveFX: {fileID: 1333880847242116, guid: 7bf74f330a3cb7046a72ae871eb29416,
     type: 2}
+  prefabLightSpot: {fileID: 1192637167453688, guid: 6aaca54121c2c3948a75f290fc7039de,
+    type: 2}
   spawnerFxState: {fileID: 1712934427886276}
   interactiblebuttonenum: 4
   interactionradius: 2
