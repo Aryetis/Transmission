@@ -14,7 +14,7 @@ public class CharacterBehaviour : MonoBehaviour {
 		get { return _instance; }
     }
     private float speed = 10.0f;
-    public BeingBehavior interactibleGo;
+    [System.NonSerialized] public BeingBehavior interactibleGo;
 
     [Header("MOTION")]
 	[Space(10)]
