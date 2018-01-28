@@ -13,7 +13,8 @@ public class Player_WaterState : State {
 
     public override void OnStateEnter() {
         GameObject.Destroy(GameObject.Instantiate(sub.prefabGiveFX, sub.spawnerFxState.transform.position, Quaternion.identity), 0.5f);
-        stateFX = GameObject.Instantiate(sub.prefabWaterFXState, sub.spawnerFxState.transform.position, Quaternion.identity);
+        stateFX = GameObject.Instantiate(sub.prefabWaterFXState, sub.spawnerFxState.transform.position, sub.gameObject.transform.rotation);
+        stateFX.transform.parent = sub.gameObject.transform;
     }
 
     public override void OnStateExit() {
