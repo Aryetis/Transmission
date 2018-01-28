@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Collections;
+using FTRuntime;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(CapsuleCollider))]
@@ -47,8 +48,13 @@ public class CharacterBehaviour : MonoBehaviour {
 	[Space(10)]
 	public AudioSource SFXDanger;
 
-	// Private
-	private int startLockDelay = 10;
+
+    //Animation
+    private SwfClip animatorClip;
+    private SwfClipController animatorController;
+
+    // Private
+    private int startLockDelay = 10;
 	// Cache
 	private float fixedDeltaTime;
 	[HideInInspector] public Transform characterTransform;
@@ -94,7 +100,11 @@ public class CharacterBehaviour : MonoBehaviour {
 	private void Start()
 	{
 		cameraBehaviour = CameraBehaviour.Instance;
-	}
+        animatorClip = gameObject.GetComponent<SwfClip>();
+        animatorController = gameObject.GetComponent<SwfClipController>();
+
+
+    }
 
 	private void Update()
 	{
@@ -176,7 +186,15 @@ public class CharacterBehaviour : MonoBehaviour {
 
 	private void SetRigidbodyVelocity(Vector3 vel)
 	{
-		characterRigidbody.velocity = vel;
+        //animatorClip.clip = (animatorClip.sequence);
+        if (vel.magnitude>0 && animatorClip.sequence != "Character_Walk") {
+            animatorClip.sequence = "Character_Walk";
+        }else if (vel.magnitude < 0.2f && animatorClip.sequence != "Character_Iddle") {
+            animatorClip.sequence = "Character_Iddle";
+        }
+        
+        //animatorController.
+        characterRigidbody.velocity = vel;
 	}
 
 	private void OffroadStatus ()
