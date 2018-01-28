@@ -14,7 +14,7 @@ public class CharacterBehaviour : MonoBehaviour {
 		get { return _instance; }
     }
     private float speed = 10.0f;
-    [System.NonSerialized] public BeingBehavior interactibleGo;
+    public BeingBehavior interactibleGo;
 
     [Header("MOTION")]
 	[Space(10)]
@@ -160,10 +160,16 @@ public class CharacterBehaviour : MonoBehaviour {
 			}
 		}
 
-        if (Input.GetButtonDown("ButtonA") && interactibleGo != null)
+        if (Input.GetButtonDown("ButtonA") && interactibleGo != null) {
             interactibleGo.AInteractionPassThrought();
-        else if (Input.GetButtonDown("ButtonB") && interactibleGo != null)
+            animatorClip.sequence = "Character_Give";
+            animatorController.loopMode = SwfClipController.LoopModes.Once;
+        }            
+        else if (Input.GetButtonDown("ButtonB") && interactibleGo != null) {
             interactibleGo.BInteractionPassThrought();
+            animatorClip.sequence = "Character_Give";
+            animatorController.loopMode = SwfClipController.LoopModes.Once;
+        }
         else if (Input.GetButtonDown("ButtonX") && interactibleGo != null)
             interactibleGo.XInteractionPassThrought();
         else if (Input.GetButtonDown("ButtonY") && interactibleGo != null)
@@ -187,11 +193,9 @@ public class CharacterBehaviour : MonoBehaviour {
 	private void SetRigidbodyVelocity(Vector3 vel)
 	{
         //animatorClip.clip = (animatorClip.sequence);
-        Debug.Log("vel.mangitude : " + vel.magnitude);
-
-        if (vel.magnitude>0 && animatorClip.sequence != "Character_Walk") {
+        if (vel.magnitude>0.5f && animatorClip.sequence != "Character_Walk") {
             animatorClip.sequence = "Character_Walk";
-        }else if (vel.magnitude < 0.2f && animatorClip.sequence != "Character_Iddle") {
+        }else if ((Mathf.Abs(leftStickAxis.x) < 0.5f && Mathf.Abs(leftStickAxis.y) < 0.5f) && animatorClip.sequence != "Character_Iddle") {
             animatorClip.sequence = "Character_Iddle";
         }
         

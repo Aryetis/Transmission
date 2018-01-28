@@ -1,0 +1,522 @@
+fileFormatVersion: 2
+guid: 31902fc20e62a9a4aaaf1c00f8ce3e3c
+timeCreated: 1517138503
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: FX_Bulle_0
+    21300002: FX_Bulle_1
+    21300004: FX_Bulle_2
+    21300006: FX_Bulle_3
+    21300008: FX_Bulle_4
+    21300010: FX_Bulle_5
+    21300012: FX_Bulle_6
+    21300014: FX_Bulle_7
+    21300016: FX_Bulle_8
+    21300018: FX_Bulle_9
+    21300020: FX_Bulle_10
+    21300022: FX_Bulle_11
+    21300024: FX_Bulle_12
+    21300026: FX_Bulle_13
+    21300028: FX_Bulle_14
+    21300030: FX_Bulle_15
+    21300032: FX_Bulle_16
+    21300034: FX_Bulle_17
+    21300036: FX_Bulle_18
+    21300038: FX_Bulle_19
+    21300040: FX_Bulle_20
+    21300042: FX_Bulle_21
+    21300044: FX_Bulle_22
+    21300046: FX_Bulle_23
+    21300048: FX_Bulle_24
+    21300050: FX_Bulle_25
+    21300052: FX_Bulle_26
+    21300054: FX_Bulle_27
+    21300056: FX_Bulle_28
+  externalObjects: {}
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: Standalone
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: FX_Bulle_0
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 1742
+        width: 302
+        height: 274
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FX_Bulle_1
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 1744
+        width: 296
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FX_Bulle_2
+      rect:
+        serializedVersion: 2
+        x: 854
+        y: 1744
+        width: 296
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FX_Bulle_3
+      rect:
+        serializedVersion: 2
+        x: 1253
+        y: 1744
+        width: 296
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FX_Bulle_4
+      rect:
+        serializedVersion: 2
+        x: 1647
+        y: 1744
+        width: 311
+        height: 288
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FX_Bulle_5
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 1429
+        width: 311
+        height: 287
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FX_Bulle_6
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 1429
+        width: 311
+        height: 287
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FX_Bulle_7
+      rect:
+        serializedVersion: 2
+        x: 848
+        y: 1429
+        width: 312
+        height: 287
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FX_Bulle_8
+      rect:
+        serializedVersion: 2
+        x: 1230
+        y: 1421
+        width: 339
+        height: 309
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FX_Bulle_9
+      rect:
+        serializedVersion: 2
+        x: 1629
+        y: 1421
+        width: 339
+        height: 309
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FX_Bulle_10
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 1106
+        width: 339
+        height: 309
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FX_Bulle_11
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 1106
+        width: 339
+        height: 309
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FX_Bulle_12
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 1103
+        width: 366
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FX_Bulle_13
+      rect:
+        serializedVersion: 2
+        x: 1215
+        y: 1103
+        width: 366
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FX_Bulle_14
+      rect:
+        serializedVersion: 2
+        x: 1614
+        y: 1103
+        width: 366
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FX_Bulle_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 790
+        width: 399
+        height: 304
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FX_Bulle_16
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 788
+        width: 399
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FX_Bulle_17
+      rect:
+        serializedVersion: 2
+        x: 798
+        y: 790
+        width: 399
+        height: 304
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FX_Bulle_18
+      rect:
+        serializedVersion: 2
+        x: 1197
+        y: 790
+        width: 399
+        height: 304
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FX_Bulle_19
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 792
+        width: 390
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FX_Bulle_20
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 476
+        width: 388
+        height: 301
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FX_Bulle_21
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 476
+        width: 388
+        height: 301
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FX_Bulle_22
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 476
+        width: 388
+        height: 301
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FX_Bulle_23
+      rect:
+        serializedVersion: 2
+        x: 1203
+        y: 476
+        width: 388
+        height: 301
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FX_Bulle_24
+      rect:
+        serializedVersion: 2
+        x: 1602
+        y: 476
+        width: 388
+        height: 301
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FX_Bulle_25
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 160
+        width: 388
+        height: 302
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FX_Bulle_26
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 164
+        width: 344
+        height: 288
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FX_Bulle_27
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 165
+        width: 344
+        height: 287
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FX_Bulle_28
+      rect:
+        serializedVersion: 2
+        x: 1227
+        y: 165
+        width: 344
+        height: 287
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
