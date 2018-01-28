@@ -8,6 +8,3 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/InternalAssets/Scenes/StartScene.unity
     guid: 4189f85abb1d1c44db023187029fccc8
-  - enabled: 1
-    path: Assets/InternalAssets/Scenes/TestScene_Robin.unity
-    guid: 245c87d625f45ac4195750b2f493a20d

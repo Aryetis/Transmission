@@ -15,10 +15,16 @@ public class Player_FireState : State {
     public override void OnStateEnter() {
         GameObject.Destroy(GameObject.Instantiate(sub.prefabGiveFX, sub.spawnerFxState.transform.position, Quaternion.identity), 0.5f);
         stateFX = GameObject.Instantiate(sub.prefabFireFXState, sub.spawnerFxState.transform.position, sub.gameObject.transform.rotation);
-        stateFX.transform.parent = sub.gameObject.transform;        
+        stateFX.transform.parent = sub.gameObject.transform;
+        light = GameObject.Instantiate(sub.prefabLightSpot, sub.spawnerFxState.transform.position, sub.gameObject.transform.rotation);
+        light.transform.position = new Vector3(light.transform.position.x, light.transform.position.y + 2, light.transform.position.z);
+        light.transform.parent = sub.gameObject.transform;
+        //CharacterBehaviour.Instance.AddOffroadAnchor(light.GetComponent<LightSpot>());
+        //CharacterBehaviour.Instance.lockInputs = false;
     }
 
     public override void OnStateExit() {
+        //CharacterBehaviour.Instance.RemoveOffroadAnchor(light.GetComponent<LightSpot>());
         GameObject.Destroy(GameObject.Instantiate(sub.prefabGiveFX, sub.spawnerFxState.transform.position, Quaternion.identity), 0.5f);
         GameObject.Destroy(stateFX);
         //GameObject.Destroy(light);
