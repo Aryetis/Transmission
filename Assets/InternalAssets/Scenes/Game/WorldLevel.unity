@@ -1978,6 +1978,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cat: 8
   nameState: 0
+  prefabFireFXState: {fileID: 0}
+  prefabWaterFXState: {fileID: 0}
+  prefabGiveFX: {fileID: 0}
+  spawnerFxState: {fileID: 0}
   interactiblebuttonenum: 0
   interactionradius: 0
 --- !u!114 &90059212
@@ -3918,6 +3922,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cat: 10
   nameState: 1
+  prefabFireFXState: {fileID: 0}
+  prefabWaterFXState: {fileID: 0}
+  prefabGiveFX: {fileID: 0}
+  spawnerFxState: {fileID: 0}
   interactiblebuttonenum: 4
   interactionradius: 2
 --- !u!114 &147088442
@@ -3970,6 +3978,7 @@ MonoBehaviour:
   startPanel: {fileID: 662212048}
   dangerText: {fileID: 2106343671}
   SFXDanger: {fileID: 1008169230}
+  prefabGiveFx: {fileID: 0}
   characterTransform: {fileID: 0}
 --- !u!54 &147088443
 Rigidbody:
@@ -5448,7 +5457,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4364374488176466, guid: 31d9f693862c15844a825bd7a66810a2, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4364374488176466, guid: 31d9f693862c15844a825bd7a66810a2, type: 2}
       propertyPath: m_LocalPosition.z
@@ -21873,7 +21882,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4364374488176466, guid: 31d9f693862c15844a825bd7a66810a2, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4364374488176466, guid: 31d9f693862c15844a825bd7a66810a2, type: 2}
       propertyPath: m_LocalPosition.z
@@ -24669,7 +24678,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4364374488176466, guid: 31d9f693862c15844a825bd7a66810a2, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.11
       objectReference: {fileID: 0}
     - target: {fileID: 4364374488176466, guid: 31d9f693862c15844a825bd7a66810a2, type: 2}
       propertyPath: m_LocalPosition.z
@@ -26940,7 +26949,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.04470025}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.49807376}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -53631,7 +53640,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4364374488176466, guid: 31d9f693862c15844a825bd7a66810a2, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4364374488176466, guid: 31d9f693862c15844a825bd7a66810a2, type: 2}
       propertyPath: m_LocalPosition.z
@@ -54321,7 +54330,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4364374488176466, guid: 31d9f693862c15844a825bd7a66810a2, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.011
       objectReference: {fileID: 0}
     - target: {fileID: 4364374488176466, guid: 31d9f693862c15844a825bd7a66810a2, type: 2}
       propertyPath: m_LocalPosition.z
@@ -55254,7 +55263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   img: {fileID: 1020785245}
-  alpha: 0.8593845
+  alpha: 0.99999785
   targetAlpha: 1
 --- !u!1 &2108585560
 GameObject:
