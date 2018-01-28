@@ -187,6 +187,8 @@ public class CharacterBehaviour : MonoBehaviour {
 	private void SetRigidbodyVelocity(Vector3 vel)
 	{
         //animatorClip.clip = (animatorClip.sequence);
+        Debug.Log("vel.mangitude : " + vel.magnitude);
+
         if (vel.magnitude>0 && animatorClip.sequence != "Character_Walk") {
             animatorClip.sequence = "Character_Walk";
         }else if (vel.magnitude < 0.2f && animatorClip.sequence != "Character_Iddle") {
