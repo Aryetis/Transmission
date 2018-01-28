@@ -15343,15 +15343,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4480927197611974, guid: a4d60b8c7982e6543b60d0966072e1f8, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -133.27151
+      value: -294.08
       objectReference: {fileID: 0}
     - target: {fileID: 4480927197611974, guid: a4d60b8c7982e6543b60d0966072e1f8, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.026596278
+      value: 2.28
       objectReference: {fileID: 0}
     - target: {fileID: 4480927197611974, guid: a4d60b8c7982e6543b60d0966072e1f8, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 145.56694
+      value: -22.84
       objectReference: {fileID: 0}
     - target: {fileID: 4480927197611974, guid: a4d60b8c7982e6543b60d0966072e1f8, type: 2}
       propertyPath: m_LocalRotation.x
@@ -27818,7 +27818,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.3392181}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.1409598}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -28806,7 +28806,7 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 0.8088235, g: 0.905071, b: 1, a: 1}
-  m_Intensity: 3
+  m_Intensity: 6
   m_Range: 16.43
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -51238,7 +51238,7 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 0.8088235, g: 0.905071, b: 1, a: 1}
-  m_Intensity: 3
+  m_Intensity: 5
   m_Range: 16.43
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -57690,7 +57690,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   img: {fileID: 1020785245}
-  alpha: 0.9999996
+  alpha: 0.5505558
   targetAlpha: 1
 --- !u!1 &2108585560
 GameObject:
