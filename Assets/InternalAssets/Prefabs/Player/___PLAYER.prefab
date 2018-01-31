@@ -633,6 +633,7 @@ MonoBehaviour:
   startPanel: {fileID: 0}
   dangerText: {fileID: 0}
   SFXDanger: {fileID: 82058048265767712}
+  animatorController: {fileID: 0}
   prefabGiveFx: {fileID: 1138124554391242, guid: 42d05acf7dfd4c9418ee710928d34960,
     type: 2}
   characterTransform: {fileID: 0}

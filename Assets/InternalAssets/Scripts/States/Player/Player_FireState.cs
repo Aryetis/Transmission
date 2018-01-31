@@ -24,10 +24,14 @@ public class Player_FireState : State {
     }
 
     public override void OnStateExit() {
+        Debug.Log("Light avant remove:" + light);
         CharacterBehaviour.Instance.RemoveOffroadAnchor(light.GetComponent<LightSpot>());
         GameObject.Destroy(GameObject.Instantiate(sub.prefabGiveFX, sub.spawnerFxState.transform.position, Quaternion.identity), 0.5f);
         GameObject.Destroy(stateFX);
-        //GameObject.Destroy(light);
+        Debug.Log("Light après remove:" + light);
+        light.transform.parent = null;
+        GameObject.Destroy(light);
+        Debug.Log("Tout va bien");
     }
 
     public override void OnTriggerEnterPassThrought(Collider col) {

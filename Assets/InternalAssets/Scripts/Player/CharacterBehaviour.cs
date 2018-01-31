@@ -51,7 +51,7 @@ public class CharacterBehaviour : MonoBehaviour {
 
     //Animation
     private SwfClip animatorClip;
-    private SwfClipController animatorController;
+    public SwfClipController animatorController;
 
     public GameObject prefabGiveFx;
 
@@ -164,19 +164,11 @@ public class CharacterBehaviour : MonoBehaviour {
 
         if (Input.GetButtonDown("ButtonA") && interactibleGo != null) {
             interactibleGo.AInteractionPassThrought();
-            animatorController.rateScale = 0.1f;
-            animatorClip.sequence = "Character_Give";
-            animatorController.loopMode = SwfClipController.LoopModes.Once;
-            Destroy(Instantiate(prefabGiveFx, new Vector3(transform.position.x, transform.position.y+1.5f, transform.position.z), Quaternion.identity), 0.3f);
-            animatorController.rateScale = 1;
+           
         }
         else if (Input.GetButtonDown("ButtonB") && interactibleGo != null) {
             interactibleGo.BInteractionPassThrought();
-            animatorController.rateScale = 0.1f;
-            animatorClip.sequence = "Character_Give";
-            animatorController.loopMode = SwfClipController.LoopModes.Once;
-            Destroy(Instantiate(prefabGiveFx, new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z), Quaternion.identity), 0.3f);
-            animatorController.rateScale = 1;
+
         }
         else if (Input.GetButtonDown("ButtonX") && interactibleGo != null)
             interactibleGo.XInteractionPassThrought();
@@ -232,9 +224,16 @@ public class CharacterBehaviour : MonoBehaviour {
 			for (int i = 0; i < offroadAnchors.Count; i++)
 			{
 				LightSpot spot = offroadAnchors[i];
-
-				offroadLerps.Add(Mathf.InverseLerp(spot.spotRadius - offroadThresold, spot.spotRadius,
-					Vector3.Distance(characterTransform.position, spot.transform.position) - characterCollider.radius));
+                
+                if(spot == null) {
+                    offroadAnchors.RemoveAt(i);
+                    continue;
+                }
+                else {
+                    offroadLerps.Add(Mathf.InverseLerp(spot.spotRadius - offroadThresold, spot.spotRadius,
+                    Vector3.Distance(characterTransform.position, spot.transform.position) - characterCollider.radius));
+                }
+                
 
 				if (i == 0)
 					closestSpot = 0;
@@ -263,10 +262,10 @@ public class CharacterBehaviour : MonoBehaviour {
 
 	public void RemoveOffroadAnchor (LightSpot spot)
 	{
-		if (offroadAnchors.Count <= 0)
-			return;
-
-		offroadAnchors.Remove(spot);
+		//if (offroadAnchors.Count <= 0)
+		//	return;
+        //Debug.Log("GET OUT SPOT:" + spot);
+        offroadAnchors.Remove(spot);
 	}
 
 	public void LockCharacter ()
@@ -295,5 +294,11 @@ public class CharacterBehaviour : MonoBehaviour {
     {
         if (other.gameObject.CompareTag("Interactif"))
             interactibleGo = null;
+    }
+
+    public void DoAnim(string nameAnimation, float scale) {
+        animatorController.rateScale = scale;
+        animatorClip.sequence = nameAnimation;
+        animatorController.loopMode = SwfClipController.LoopModes.Once;
     }
 }

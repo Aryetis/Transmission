@@ -38,6 +38,7 @@ public class FireOrb_NeutralState : State {
         BeingBehavior player = GameObject.FindGameObjectWithTag("Player").GetComponent<BeingBehavior>();
         if (player.nameState.Equals(NameState.Fire)) {
             nameState = NameState.Fire;
+            player.gameObject.GetComponent<CharacterBehaviour>().DoAnim("Character_Give", 0.1f);
             GameObject.Destroy(GameObject.Instantiate(sub.prefabGiveFX, sub.spawnerFxState.transform.position, Quaternion.identity), 0.5f);
             player.nameState = NameState.Neutral;
             player.SetState(new PlayerEmpty(player, player.interactiblebuttonenum, player.interactionradius, player.nameState));

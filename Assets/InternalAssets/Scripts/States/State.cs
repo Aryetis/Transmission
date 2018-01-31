@@ -80,12 +80,12 @@ public abstract class State
 
         // Set collider / interaction zone
         CapsuleCollider col = sub.gameObject.GetComponent<CapsuleCollider>();
-        if ( sub.gameObject.CompareTag("Player") && col != null && !col.isTrigger )
+        if ( sub.gameObject.CompareTag("Player") && col != null && col.isTrigger )
         {
-            Debug.Log("sub.gameObject.name : " + sub.gameObject.name);
-            col = sub.gameObject.AddComponent<CapsuleCollider>();
-            col.radius += interactionRadius;
-            col.isTrigger = true;
+            //Debug.Log("sub.gameObject.name : " + sub.gameObject.name);
+            //col = sub.gameObject.GetComponent<CapsuleCollider>();
+            col.radius = interactionRadius;
+            //col.isTrigger = true;
         }
 
         // Set HUD

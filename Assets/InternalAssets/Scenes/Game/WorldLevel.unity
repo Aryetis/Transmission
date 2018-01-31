@@ -3829,6 +3829,7 @@ MonoBehaviour:
   startPanel: {fileID: 662212048}
   dangerText: {fileID: 2106343671}
   SFXDanger: {fileID: 1008169230}
+  animatorController: {fileID: 0}
   prefabGiveFx: {fileID: 0}
   characterTransform: {fileID: 0}
 --- !u!54 &147088443
@@ -7635,6 +7636,36 @@ Prefab:
       propertyPath: redOverlay
       value: 
       objectReference: {fileID: 1245968282}
+    - target: {fileID: 114035329903704762, guid: a4d60b8c7982e6543b60d0966072e1f8,
+        type: 2}
+      propertyPath: _sequence
+      value: Character_Wait
+      objectReference: {fileID: 0}
+    - target: {fileID: 114402092854347594, guid: a4d60b8c7982e6543b60d0966072e1f8,
+        type: 2}
+      propertyPath: _rateScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114402092854347594, guid: a4d60b8c7982e6543b60d0966072e1f8,
+        type: 2}
+      propertyPath: _useUnscaledDt
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114402092854347594, guid: a4d60b8c7982e6543b60d0966072e1f8,
+        type: 2}
+      propertyPath: _autoPlay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114402092854347594, guid: a4d60b8c7982e6543b60d0966072e1f8,
+        type: 2}
+      propertyPath: _playMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114402092854347594, guid: a4d60b8c7982e6543b60d0966072e1f8,
+        type: 2}
+      propertyPath: _loopMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a4d60b8c7982e6543b60d0966072e1f8, type: 2}
   m_IsPrefabParent: 0
@@ -27575,7 +27606,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.115779065}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.04231156}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -44152,6 +44183,24 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1604637969}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1605494241 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1173161735817002, guid: a4d60b8c7982e6543b60d0966072e1f8,
+    type: 2}
+  m_PrefabInternal: {fileID: 296459084}
+--- !u!136 &1605494254
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1605494241}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 2
+  m_Height: 1.7039931
+  m_Direction: 1
+  m_Center: {x: -0.020753741, y: 0.87900317, z: 0}
 --- !u!1 &1605583600
 GameObject:
   m_ObjectHideFlags: 0
@@ -48639,7 +48688,7 @@ Prefab:
     - target: {fileID: 224534636200763274, guid: ff10f0936cdcca04d8099cefb814a8e0,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -0.00012207031
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224534636200763274, guid: ff10f0936cdcca04d8099cefb814a8e0,
         type: 2}
@@ -57208,7 +57257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   img: {fileID: 1020785245}
-  alpha: 0.2507051
+  alpha: 0.9999996
   targetAlpha: 1
 --- !u!1 &2108585560
 GameObject:
