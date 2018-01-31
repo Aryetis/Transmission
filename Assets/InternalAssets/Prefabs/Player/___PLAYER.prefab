@@ -223,7 +223,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1173161735817002}
-  m_LocalRotation: {x: 0.08715574, y: 0.000000014901163, z: -0, w: 0.9961947}
+  m_LocalRotation: {x: 0.08715574, y: -0, z: -0, w: 0.9961947}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -240,8 +240,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1004014072572794}
-  m_LocalRotation: {x: 0, y: 0.2588191, z: 0, w: 0.9659258}
-  m_LocalPosition: {x: -133.27151, y: -0.026596278, z: 145.56694}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 36.95, y: 2.041, z: -0.735}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4104642745117442}
@@ -847,7 +847,7 @@ MonoBehaviour:
     type: 2}
   prefabGiveFX: {fileID: 1333880847242116, guid: 7bf74f330a3cb7046a72ae871eb29416,
     type: 2}
-  prefabLightSpot: {fileID: 1192637167453688, guid: 6aaca54121c2c3948a75f290fc7039de,
+  prefabLightSpot: {fileID: 1192637167453688, guid: 537a592936113454d88c30776398526e,
     type: 2}
   spawnerFxState: {fileID: 1712934427886276}
   interactiblebuttonenum: 4
